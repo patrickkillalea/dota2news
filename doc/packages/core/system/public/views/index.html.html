@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/system/public/views/index.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;welcome container-fluid&quot;</span> <span class="na">data-ng-controller=</span><span class="s">&quot;IndexController&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-12&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-6&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Main news carrousel<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featuredpic&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{sites.newsitem1.image}}&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;h4&gt;</span>{{sites.newsitem1.name}} 
+        <span class="nt">&lt;span&gt;</span>by
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{sites.newsitem1.link}}&quot;</span><span class="nt">&gt;</span>{{sites.newsitem1.author}}<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;p&gt;</span>{{sites.newsitem1.text}}<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-6&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Latest news<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:1px solid red; max-width: 100%;&quot;</span><span class="nt">&gt;</span>News Item<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>  
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-12&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-6&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>News 2<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featuredpic&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{sites.newsitem2.image}}&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;h4&gt;</span>{{sites.newsitem2.name}} 
+        <span class="nt">&lt;span&gt;</span>by
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{sites.newsitem2.link}}&quot;</span><span class="nt">&gt;</span>{{sites.newsitem2.author}}<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;p&gt;</span>{{sites.newsitem2.text}}<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-6&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>News 3<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featuredpic&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{sites.newsitem3.image}}&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;h4&gt;</span>{{sites.newsitem3.name}} 
+        <span class="nt">&lt;span&gt;</span>by
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{sites.newsitem3.link}}&quot;</span><span class="nt">&gt;</span>{{sites.newsitem3.author}}<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;p&gt;</span>{{sites.newsitem3.text}}<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-12 row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;info col-md-6&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;docs&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;welcome-sprite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Browse the  Documentation<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;docs-desc&quot;</span><span class="nt">&gt;</span>
+          Before you jump in it&#39;s important to read the documentation and learn about the different aspects of extending and developing MEAN.<span class="nt">&lt;br/&gt;</span>
+          Mean is based on MongoDB, Express.js, Angular.js and Node.js and even basic proficiency in these technologies will help you dive in to mean development - luckily there are plenty of <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/&quot;</span><span class="nt">&gt;</span>tutorials around<span class="nt">&lt;/a&gt;</span>.
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;docs-link first&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/#mean-technologies&quot;</span><span class="nt">&gt;</span>Overview<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/#mean-packages&quot;</span><span class="nt">&gt;</span>Packages<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;docs-link&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/#mean-cli&quot;</span><span class="nt">&gt;</span>CLI<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/#mean-mean-network&quot;</span><span class="nt">&gt;</span>Network<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;docs-link&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/#mean-packages-overriding-the-default-layouts&quot;</span><span class="nt">&gt;</span>Overriding<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://learn.mean.io/#mean-packages-contributing-your-package&quot;</span><span class="nt">&gt;</span>Contribution<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;morelink&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://mean.io/#!/docs&quot;</span><span class="nt">&gt;</span>All Documentation<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;packages&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;welcome-sprite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Browse our packages<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://mean.io/#!/packages/5381820ea331eb26d1e97d3a&quot;</span><span class="nt">&gt;</span>Token<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>&quot;Inplace edit&quot; any text on the site which is wrapped by the mean-token directive.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://mean.io/#!/packages/5406ea218481325770de48d2&quot;</span><span class="nt">&gt;</span>Comments<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Add comments to your objects including realtime socket.io based notifications.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://mean.io/#!/packages/5403969ab6f54b9162921322&quot;</span><span class="nt">&gt;</span>Gmap<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Add geo information to your objects using a google map with location autocomplete.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://mean.io/#!/packages/538180d8a331eb26d1e97d39&quot;</span><span class="nt">&gt;</span>Mean-admin<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Administer your mean application including user, theme, variable and general settings<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;morelink&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://mean.io/#!/packages&quot;</span><span class="nt">&gt;</span>All Packages<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;community&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;welcome-sprite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Join our community<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;socialsprite sprite-facebook&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://www.facebook.com/groups/mean.io/&quot;</span><span class="nt">&gt;</span>Facebook group<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Informal support, news and just hanging out<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;socialsprite sprite-irc&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://gitter.im/linnovate/mean&quot;</span><span class="nt">&gt;</span>Gitter<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Support and Technical discussions<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;socialsprite sprite-github&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://github.com/linnovate/mean&quot;</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Issues, Support, Code discussions and PRs<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;socialsprite sprite-stackoverflow&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;package&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://hangout.mean.io&quot;</span><span class="nt">&gt;</span>Hangout<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Video support, shared coding and to meet the people behind mean.io<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featured col-md-6&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featured-sites&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>Get Inspired<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featuredpic&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{sites.cactus.image}}&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>{{sites.cactus.name}} <span class="nt">&lt;span&gt;</span>by
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{sites.cactus.link}}&quot;</span><span class="nt">&gt;</span>{{sites.cactus.author}}<span class="nt">&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;</span>
+          <span class="nt">&lt;p&gt;</span>{{sites.cactus.text}}<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;morelink&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://builtwith.mean.io&quot;</span><span class="nt">&gt;</span>Built with MEAN<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featured-packages&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2&gt;</span>Featured Package<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;featuredpic&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{packages.gmap.image}}&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;h4&gt;</span>{{packages.gmap.name}} <span class="nt">&lt;span&gt;</span>by
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{sites.makeapoint.link}}&quot;</span><span class="nt">&gt;</span>{{packages.gmap.author}}<span class="nt">&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;</span>
+            <span class="nt">&lt;p&gt;</span>{{packages.gmap.text}}<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;morelink&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://builtwith.mean.io&quot;</span><span class="nt">&gt;</span>All Packages<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

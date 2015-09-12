@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>themes.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/server/controllers/themes.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>themes.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">save</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">gfs</span><span class="p">)</span> <span class="p">{</span>
+
+
+    <span class="nx">gfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;theme.css&#39;</span>
+    <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;Error updating theme&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Id of the current theme file</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="kd">var</span> <span class="nx">_id</span> <span class="o">=</span> <span class="p">(</span><span class="nx">file</span> <span class="o">?</span> <span class="nx">file</span><span class="p">.</span><span class="nx">_id</span> <span class="o">:</span> <span class="kc">null</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Creating write stream</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="kd">var</span> <span class="nx">writestream</span> <span class="o">=</span> <span class="nx">gfs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">({</span>
+            <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;theme.css&#39;</span>
+        <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Retrieving theme from source</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+        <span class="nx">request</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">theme</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">writestream</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Remove old theme file</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+        <span class="nx">writestream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;saved&#39;</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">_id</span> <span class="o">&amp;&amp;</span> <span class="nx">file</span><span class="p">.</span><span class="nx">filename</span> <span class="o">===</span> <span class="s1">&#39;theme.css&#39;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">gfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span>
+                    <span class="nx">_id</span><span class="o">:</span> <span class="nx">_id</span>
+                <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="nx">writestream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;error updating theme&#39;</span><span class="p">);</span>
+
+        <span class="p">});</span>
+
+    <span class="p">});</span>
+
+<span class="p">};</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">defaultTheme</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">gfs</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">gfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;theme.css&#39;</span>
+    <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;Error updating theme&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Id of the current theme file</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="kd">var</span> <span class="nx">_id</span> <span class="o">=</span> <span class="p">(</span><span class="nx">file</span> <span class="o">?</span> <span class="nx">file</span><span class="p">.</span><span class="nx">_id</span> <span class="o">:</span> <span class="kc">null</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">_id</span> <span class="o">&amp;&amp;</span> <span class="nx">file</span><span class="p">.</span><span class="nx">filename</span> <span class="o">===</span> <span class="s1">&#39;theme.css&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">gfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span>
+                <span class="nx">_id</span><span class="o">:</span> <span class="nx">_id</span>
+            <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;saved&#39;</span><span class="p">);</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

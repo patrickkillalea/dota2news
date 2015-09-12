@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>themes.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/public/controllers/themes.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>themes.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.admin&#39;</span><span class="p">).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ThemesController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">Global</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">global</span> <span class="o">=</span> <span class="nx">Global</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">themes</span> <span class="o">=</span> <span class="p">[];</span>
+
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$http</span><span class="p">({</span>
+                <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+                <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://api.bootswatch.com/3/&#39;</span><span class="p">,</span>
+                <span class="nx">skipAuthorization</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">}).</span>
+            <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$scope</span><span class="p">.</span><span class="nx">themes</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">themes</span><span class="p">;</span>
+            <span class="p">}).</span>
+            <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="p">});</span>
+        <span class="p">};</span>
+
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">changeTheme</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">theme</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Will add preview options soon
+$('link').attr('href', theme.css);
+$scope.selectedTheme = theme;</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.progress-striped&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+
+            <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/themes?theme=&#39;</span> <span class="o">+</span> <span class="nx">theme</span><span class="p">.</span><span class="nx">css</span><span class="p">).</span>
+            <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+                    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+            <span class="p">}).</span>
+            <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.progress-striped&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+
+            <span class="p">});</span>
+        <span class="p">};</span>
+
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">defaultTheme</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/themes/defaultTheme&#39;</span><span class="p">).</span>
+            <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+                    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+            <span class="p">}).</span>
+            <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

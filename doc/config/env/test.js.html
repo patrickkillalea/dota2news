@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "config/env/test.js", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>test.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">db</span><span class="o">:</span> <span class="s1">&#39;mongodb://&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_PORT_27017_TCP_ADDR</span> <span class="o">||</span> <span class="s1">&#39;localhost&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/mean-test&#39;</span><span class="p">,</span>
+  <span class="nx">http</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="mi">3001</span>
+  <span class="p">},</span>
+  <span class="nx">aggregate</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">assets</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">hash</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nx">logging</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;common&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;MEAN - A Modern Stack - Test&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">strategies</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">local</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nx">landingPage</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">facebook</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;APP_ID&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;APP_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/auth/facebook/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">twitter</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;CONSUMER_KEY&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;CONSUMER_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/auth/twitter/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">github</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;APP_ID&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;APP_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/auth/github/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">google</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;APP_ID&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;APP_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/auth/google/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">linkedin</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/auth/linkedin/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">emailFrom</span><span class="o">:</span> <span class="s1">&#39;SENDER EMAIL ADDRESS&#39;</span><span class="p">,</span> <span class="c1">// sender address like ABC &lt;abc@example.com&gt;</span>
+  <span class="nx">mailer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">service</span><span class="o">:</span> <span class="s1">&#39;SERVICE_PROVIDER&#39;</span><span class="p">,</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;EMAIL_ID&#39;</span><span class="p">,</span>
+      <span class="nx">pass</span><span class="o">:</span> <span class="s1">&#39;PASSWORD&#39;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;SOME_TOKEN_SECRET&#39;</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

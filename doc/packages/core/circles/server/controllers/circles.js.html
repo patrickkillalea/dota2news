@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>circles.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/circles/server/controllers/circles.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>circles.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">),</span>
+    <span class="nx">Circle</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Circle&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Circles</span><span class="p">,</span> <span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+
+        <span class="nx">test</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;Article&#39;</span><span class="p">);</span>
+
+            <span class="nx">query</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+            <span class="p">})</span>
+        <span class="p">},</span>
+
+        <span class="nx">visualize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Circles</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+
+        <span class="nx">tree</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Circle</span><span class="p">.</span><span class="nx">buildPermissions</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">tree</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+
+        <span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+            <span class="nx">circle</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span>
+                        <span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;Cannot save the circle&#39;</span>
+                    <span class="p">});</span>
+                <span class="p">}</span>
+
+                <span class="nx">Circle</span><span class="p">.</span><span class="nx">buildPermissions</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;circles&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                <span class="p">});</span>
+
+                <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+
+        <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="s1">&#39;No name specified&#39;</span><span class="p">);</span>
+
+            <span class="nx">validateCircles</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">circles</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="nx">status</span><span class="p">);</span>
+
+                <span class="nx">Circle</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+                    <span class="nx">name</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">name</span>
+                <span class="p">}).</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">circle</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span> <span class="o">&amp;&amp;</span> <span class="nx">circle</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">Circle</span><span class="p">.</span><span class="nx">findOneAndUpdate</span><span class="p">({</span>
+                            <span class="nx">name</span><span class="o">:</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">name</span>
+                        <span class="p">},</span> <span class="p">{</span>
+                            <span class="nx">$set</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span>
+                        <span class="p">},</span> <span class="p">{</span>
+                            <span class="nx">multi</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nx">upsert</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">circle</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                            <span class="p">}</span>
+
+                            <span class="nx">Circle</span><span class="p">.</span><span class="nx">buildPermissions</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;circles&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                            <span class="p">});</span>
+
+                            <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">);</span>
+                        <span class="p">});</span>
+                    <span class="p">}</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+        <span class="nx">mine</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">descendants</span> <span class="o">=</span> <span class="p">{};</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="k">in</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">circles</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">descendants</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">circles</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">decendants</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">allowed</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">allowed</span><span class="p">,</span> <span class="nx">descendants</span><span class="o">:</span> <span class="nx">descendants</span> <span class="p">});</span>
+        <span class="p">},</span>
+        <span class="nx">all</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                <span class="nx">tree</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">tree</span><span class="p">,</span>
+                <span class="nx">circles</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">circles</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+        <span class="nx">show</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">loadCircles</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;circles&#39;</span><span class="p">);</span>
+
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">)</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span> <span class="o">=</span> <span class="p">{};</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">Circle</span><span class="p">.</span><span class="nx">buildPermissions</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;circles&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                    <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">tree</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">tree</span><span class="p">;</span>
+                    <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">circles</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">circles</span><span class="p">;</span>
+
+                    <span class="nx">next</span><span class="p">();</span>
+                <span class="p">});</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">tree</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">tree</span><span class="p">;</span>
+                <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">circles</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">circles</span><span class="p">;</span>
+                <span class="nx">next</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">userAcl</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">roles</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span> <span class="o">&amp;&amp;</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">roles</span> <span class="o">?</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">roles</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;anonymous&#39;</span><span class="p">];</span>
+
+            <span class="kd">var</span> <span class="nx">userRoles</span> <span class="o">=</span> <span class="p">{};</span>
+            <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[];</span>
+
+            <span class="nx">roles</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">circles</span><span class="p">[</span><span class="nx">role</span><span class="p">])</span> <span class="p">{</span>
+                    
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">role</span><span class="p">);</span>
+                    <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">circles</span><span class="p">[</span><span class="nx">role</span><span class="p">].</span><span class="nx">decendants</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">descendent</span><span class="p">)</span> <span class="p">{</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">descendent</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">descendent</span><span class="p">);</span>
+                        <span class="p">}</span>
+                        
+                    <span class="p">});</span>
+                    <span class="nx">userRoles</span><span class="p">[</span><span class="nx">role</span><span class="p">]</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">circles</span><span class="p">[</span><span class="nx">role</span><span class="p">];</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+
+            <span class="kd">var</span> <span class="nx">tree</span> <span class="o">=</span> <span class="nx">Circle</span><span class="p">.</span><span class="nx">buildTrees</span><span class="p">(</span><span class="nx">userRoles</span><span class="p">);</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="k">in</span> <span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">tree</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">children</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">tree</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">children</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="nx">tree</span><span class="o">:</span> <span class="nx">tree</span><span class="p">,</span> 
+                <span class="nx">circles</span><span class="o">:</span> <span class="nx">userRoles</span><span class="p">,</span>
+                <span class="nx">allowed</span><span class="o">:</span> <span class="nx">list</span><span class="p">,</span>
+            <span class="p">};</span>
+
+            <span class="k">return</span> <span class="nx">next</span><span class="p">();</span>
+        <span class="p">},</span>
+        <span class="nx">aclBlocker</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">query</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Circles</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">model</span><span class="p">])</span> <span class="p">{</span>
+                    <span class="nx">Circles</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">model</span><span class="p">]</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="nx">model</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="nx">Circles</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">model</span><span class="p">].</span><span class="nx">where</span><span class="p">({</span>
+                    <span class="nx">permissions</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">$in</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">allowed</span>
+                    <span class="p">}</span>
+                <span class="p">});</span>
+            <span class="p">};</span>
+
+            <span class="nx">next</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+
+
+
+<span class="kd">function</span> <span class="nx">validateCircles</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">circles</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">Circle</span><span class="p">.</span><span class="nx">buildPermissions</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">circles</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">circles</span><span class="p">);</span>
+
+        <span class="nx">circles</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">circles</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">decendants</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">parent</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Cannot reference parent in child relationship&#39;</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">===</span> <span class="nx">circles</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;valid&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body"><p>,
+userRoles: function(req, res, next) {</p>
+
+<p>var roles = req.user &amp;&amp; req.user.roles ? req.user.roles : ['anonymous'];</p>
+
+<p>var myRoles = {};</p>
+
+<p>roles.forEach(function(role) {
+if (req.circles[role]) {
+myRoles[role] = req.circes[role];
+}
+});</p>
+
+<p>return myRoles;
+}</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

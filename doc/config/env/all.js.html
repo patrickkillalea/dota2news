@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>all.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "config/env/all.js", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>all.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">),</span>
+  <span class="nx">rootPath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">normalize</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/../..&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">root</span><span class="o">:</span> <span class="nx">rootPath</span><span class="p">,</span>
+  <span class="nx">http</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span>
+  <span class="p">},</span>
+  <span class="nx">https</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Paths to key and cert as string</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">ssl</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">cert</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">hostname</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HOST</span> <span class="o">||</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HOSTNAME</span><span class="p">,</span>
+  <span class="nx">db</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MONGOHQ_URL</span><span class="p">,</span>
+  <span class="nx">templateEngine</span><span class="o">:</span> <span class="s1">&#39;swig&#39;</span><span class="p">,</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>The secret should be set to a non-guessable string that
+is used to compute a session hash</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">sessionSecret</span><span class="o">:</span> <span class="s1">&#39;MEAN&#39;</span><span class="p">,</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>The name of the MongoDB collection to store sessions in</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">sessionCollection</span><span class="o">:</span> <span class="s1">&#39;sessions&#39;</span><span class="p">,</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>The session cookie settings</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">sessionCookie</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">httpOnly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>If secure is set to true then it will cause the cookie to be set
+only when SSL-enabled (HTTPS) is used, and otherwise it won't
+set a cookie. 'true' is recommended yet it requires the above
+mentioned pre-requisite.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">secure</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>Only set the maxAge to null if the cookie shouldn't be expired
+at all. The cookie will expunge when the browser is closed.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">maxAge</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="kr">public</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">languages</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">locale</span><span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+      <span class="nx">direction</span><span class="o">:</span> <span class="s1">&#39;ltr&#39;</span><span class="p">,</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">locale</span><span class="o">:</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span>
+      <span class="nx">direction</span><span class="o">:</span> <span class="s1">&#39;rtl&#39;</span><span class="p">,</span>
+    <span class="p">}],</span>
+    <span class="nx">currentLanguage</span><span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+    <span class="nx">cssFramework</span><span class="o">:</span> <span class="s1">&#39;bootstrap&#39;</span>
+  <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>The session cookie name</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">sessionName</span><span class="o">:</span> <span class="s1">&#39;connect.sid&#39;</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

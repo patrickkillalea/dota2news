@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>articles.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/articles/server/routes/articles.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>articles.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Article authorization helpers</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">hasAuthorization</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">isAdmin</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">article</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;User is not authorized&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">hasPermissions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">permissions</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">permissions</span> <span class="o">||</span> <span class="p">[</span><span class="s1">&#39;authenticated&#39;</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">permissions</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">permission</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">permissions</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">acl</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">allowed</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">permission</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;User not allowed to assign &#39;</span> <span class="o">+</span> <span class="nx">permission</span> <span class="o">+</span> <span class="s1">&#39; permission.&#39;</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">};</span>
+
+    <span class="nx">next</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Articles</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">auth</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="kd">var</span> <span class="nx">articles</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../controllers/articles&#39;</span><span class="p">)(</span><span class="nx">Articles</span><span class="p">);</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/articles&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">articles</span><span class="p">.</span><span class="nx">all</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">requiresLogin</span><span class="p">,</span> <span class="nx">hasPermissions</span><span class="p">,</span> <span class="nx">articles</span><span class="p">.</span><span class="nx">create</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/articles/:articleId&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isMongoId</span><span class="p">,</span> <span class="nx">articles</span><span class="p">.</span><span class="nx">show</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isMongoId</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresLogin</span><span class="p">,</span> <span class="nx">hasAuthorization</span><span class="p">,</span> <span class="nx">hasPermissions</span><span class="p">,</span> <span class="nx">articles</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isMongoId</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresLogin</span><span class="p">,</span> <span class="nx">hasAuthorization</span><span class="p">,</span> <span class="nx">articles</span><span class="p">.</span><span class="nx">destroy</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Finish with setting up the articleId param</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;articleId&#39;</span><span class="p">,</span> <span class="nx">articles</span><span class="p">.</span><span class="nx">article</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

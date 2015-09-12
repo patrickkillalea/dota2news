@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>template.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../", thisFile = "packages/core/users/server/template.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>template.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">forgot_password_email</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">mailOptions</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">mailOptions</span><span class="p">.</span><span class="nx">html</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="s1">&#39;Hi &#39;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;We have received a request to reset the password for your account.&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;If you made this request, please click on the link below or paste this into your browser to complete the process:&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">host</span> <span class="o">+</span> <span class="s1">&#39;/reset/&#39;</span> <span class="o">+</span> <span class="nx">token</span><span class="p">,</span>
+      <span class="s1">&#39;This link will work for 1 hour or until your password is reset.&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;If you did not ask to change your password, please ignore this email and your account will remain unchanged.&#39;</span>
+    <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">);</span>
+    <span class="nx">mailOptions</span><span class="p">.</span><span class="nx">subject</span> <span class="o">=</span> <span class="s1">&#39;Resetting the password&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">mailOptions</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/server/routes/index.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Grid</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gridfs-stream&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>The Package is past automatically as first parameter</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Admin</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">database</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">gfs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Grid</span><span class="p">(</span><span class="nx">database</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">connections</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">db</span><span class="p">,</span> <span class="nx">database</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">mongo</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">mean</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;meanio&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Setting up the users api</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../controllers/users&#39;</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/users&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">all</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/admin/users&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">create</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/api/admin/users/:userId&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;/api/admin/users/:userId&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">destroy</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Setting up the users api</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="kd">var</span> <span class="nx">themes</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../controllers/themes&#39;</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/themes&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">themes</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">gfs</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/themes/defaultTheme&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">themes</span><span class="p">.</span><span class="nx">defaultTheme</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">gfs</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/themes/defaultTheme&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">themes</span><span class="p">.</span><span class="nx">defaultTheme</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">gfs</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/modules&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>var modules = mean.exportable_modules_list;
+res.jsonp(modules);
+for (var index in mean.resolved) {
+  //console.log(mean.resolved);
+  if (mean.resolved[index].result) console.log(mean.resolved[index].result.loadedmodule);
+}</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../controllers/settings&#39;</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/settings&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">get</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/api/admin/settings&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">save</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">moduleSettings</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../controllers/module-settings&#39;</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/admin/moduleSettings/:name&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">moduleSettings</span><span class="p">.</span><span class="nx">get</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/admin/moduleSettings/:name&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">moduleSettings</span><span class="p">.</span><span class="nx">save</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/api/admin/moduleSettings/:name&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">requiresAdmin</span><span class="p">,</span> <span class="nx">moduleSettings</span><span class="p">.</span><span class="nx">update</span><span class="p">);</span>
+
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

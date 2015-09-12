@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>users.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/server/tests/users.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>users.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="cm">/* jshint -W079 */</span> 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Related to <a href='https://github.com/linnovate/mean/issues/898'>https://github.com/linnovate/mean/issues/898</a> <br />
+'use strict';</p>
+  </div>
+  <div class="body"><p>var crypto = require('crypto');</p>
+
+<p>/**
+Create a random hex string of specific length and</p>
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">todo</div>
+    <div class="dox_tag_detail">
+      <span>consider taking out to a common unit testing javascript helper</span>
+    </div>
+    <div class="dox_tag_title">Returns</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name"></span>
+      <span>string
+/</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">function</span> <span class="nx">getRandomString</span><span class="p">(</span><span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">len</span><span class="p">)</span>
+    <span class="nx">len</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">len</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Module dependencies.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;expect.js&#39;</span><span class="p">),</span>
+    <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">),</span>
+  <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Globals</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">user1</span><span class="p">,</span> <span class="nx">user2</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Test Suites</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;&lt;Unit Test&gt;&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Model User:&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nx">before</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">user1</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Full name&#39;</span><span class="p">,</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span> <span class="o">+</span> <span class="nx">getRandomString</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;@test.com&#39;</span><span class="p">,</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="nx">getRandomString</span><span class="p">(),</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+        <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span>
+      <span class="p">};</span>
+
+      <span class="nx">user2</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Full name&#39;</span><span class="p">,</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span> <span class="o">+</span> <span class="nx">getRandomString</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;@test.com&#39;</span><span class="p">,</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="nx">getRandomString</span><span class="p">(),</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+        <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span>
+      <span class="p">};</span>
+
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Method Save&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should begin without the test user&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="nx">user1</span><span class="p">.</span><span class="nx">email</span>
+        <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+          <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>
+            <span class="nx">email</span><span class="o">:</span> <span class="nx">user2</span><span class="p">.</span><span class="nx">email</span>
+          <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">});</span>
+
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should be able to save without problems&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+          <span class="nx">done</span><span class="p">();</span>
+        <span class="p">});</span>
+
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should check that roles are assigned and created properly&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>the user1 object and users in general are created with only the 'authenticated' role</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">hasRole</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">hasRole</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">()).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>With the introduction of roles by circles a user has both anonymous and authenticated circles upon creation </p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">roles</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+          <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">});</span>
+        <span class="p">});</span>
+
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should confirm that password is hashed correctly&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">hashed_password</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">salt</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">password</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+          <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">});</span>
+
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should be able to create user and save user for updates without problems&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+          <span class="nx">_user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Full name2&#39;</span><span class="p">;</span>
+          <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">&#39;Full name2&#39;</span><span class="p">);</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">});</span>
+
+        <span class="p">});</span>
+
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should fail to save an existing user with the same values&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user1</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+
+        <span class="kd">var</span> <span class="nx">_user2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nx">_user2</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="nx">_user1</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">_user2</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">done</span><span class="p">();</span>
+              <span class="p">});</span>
+            <span class="p">}</span>
+
+            <span class="nx">done</span><span class="p">();</span>
+
+          <span class="p">});</span>
+
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should show an error when try to save without name&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should show an error when try to save without username&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">username</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should show an error when try to save without password and provider set to local&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">provider</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should be able to to save without password and provider set to twitter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">provider</span> <span class="o">=</span> <span class="s1">&#39;twitter&#39;</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">provider</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">);</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">hashed_password</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">});</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+    <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>source: <a href='http://en.wikipedia.org/wiki/Email_address'>http://en.wikipedia.org/wiki/Email_address</a></p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Test Email Validations&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #1&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;Abc.example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #2&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;A@b@c@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err2</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #3&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;a&quot;b(c)d,e:f;g&lt;h&gt;i[j\\k]l@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #4&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;just&quot;not&quot;right@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #5&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;this is&quot;not\\allowed@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #6&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;this\\ still\\&quot;not\\allowed@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #7&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;john..doe@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Shouldnt allow invalid emails #8&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;john.doe@example..com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Should save with valid email #1&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Should save with valid email #2&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;disposable.style.email.with+symbol@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Should save with valid email #3&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;other.email-with-dash@example.com&#39;</span><span class="p">;</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_user</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+              <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;name should be escaped from xss&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;&#39;</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="s1">&#39;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&#39;</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;username should be escaped from xss&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">_user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="nx">user1</span><span class="p">);</span>
+        <span class="nx">_user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt;xss&lt;/b&gt;&#39;</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">_user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">_user</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">(</span><span class="s1">&#39;&amp;lt;b&amp;gt;xss&amp;lt;/b&amp;gt;&#39;</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+
+    <span class="p">});</span>
+
+    <span class="nx">after</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Clean up user objects
+un-necessary as they are cleaned up in each test but kept here
+for educational purposes</p>
+  </div>
+  <div class="body"><p>var _user1 = new User(user1);
+ var _user2 = new User(user2);</p>
+
+<p>_user1.remove();
+ _user2.remove();</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

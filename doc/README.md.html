@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>README.md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "", thisFile = "README.md", defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h1">
+        <a href="#%20mean%20stack"> MEAN Stack</a>
+      </div>
+      <div class="heading h2">
+        <a href="#prerequisite%20technologies">Prerequisite Technologies</a>
+      </div>
+      <div class="heading h3">
+        <a href="#linux">Linux</a>
+      </div>
+      <div class="heading h3">
+        <a href="#windows">Windows</a>
+      </div>
+      <div class="heading h3">
+        <a href="#osx">OSX</a>
+      </div>
+      <div class="heading h2">
+        <a href="#prerequisite%20packages">Prerequisite packages</a>
+      </div>
+      <div class="heading h2">
+        <a href="#installation">Installation</a>
+      </div>
+      <div class="heading h3">
+        <a href="#install%20the%20mean%20cli">Install the MEAN CLI</a>
+      </div>
+      <div class="heading h3">
+        <a href="#invoke%20node%20with%20a%20task%20manager">Invoke node with a task manager</a>
+      </div>
+      <div class="heading h3">
+        <a href="#troubleshooting">Troubleshooting</a>
+      </div>
+      <div class="heading h4">
+        <a href="#update%20npm%2C%20bower%20or%20grunt">Update NPM, Bower or Grunt</a>
+      </div>
+      <div class="heading h4">
+        <a href="#cleaning%20npm%20and%20bower%20cache">Cleaning NPM and Bower cache</a>
+      </div>
+      <div class="heading h4">
+        <a href="#installation%20problems%20on%20windows%208%20%2F%208.1">Installation problems on Windows 8 / 8.1</a>
+      </div>
+      <div class="heading h4">
+        <a href="#git%20%22not%20found%22%20on%20windows">Git "not found" on Windows</a>
+      </div>
+      <div class="heading h2">
+        <a href="#technologies">Technologies</a>
+      </div>
+      <div class="heading h3">
+        <a href="#the%20mean%20stack">The MEAN stack</a>
+      </div>
+      <div class="heading h3">
+        <a href="#additional%20tools">Additional Tools</a>
+      </div>
+      <div class="heading h2">
+        <a href="#cli">CLI</a>
+      </div>
+      <div class="heading h3">
+        <a href="#overview">Overview</a>
+      </div>
+      <div class="heading h3">
+        <a href="#users">Users</a>
+      </div>
+      <div class="heading h3">
+        <a href="#packages">Packages</a>
+      </div>
+      <div class="heading h4">
+        <a href="#management">Management</a>
+      </div>
+      <div class="heading h4">
+        <a href="#search">Search</a>
+      </div>
+      <div class="heading h4">
+        <a href="#scaffolding">Scaffolding</a>
+      </div>
+      <div class="heading h3">
+        <a href="#misc">Misc</a>
+      </div>
+      <div class="heading h4">
+        <a href="#status">Status</a>
+      </div>
+      <div class="heading h4">
+        <a href="#docs">Docs</a>
+      </div>
+      <div class="heading h2">
+        <a href="#packages">Packages</a>
+      </div>
+      <div class="heading h3">
+        <a href="#core%20packages">Core Packages</a>
+      </div>
+      <div class="heading h4">
+        <a href="#system">System</a>
+      </div>
+      <div class="heading h4">
+        <a href="#users">Users</a>
+      </div>
+      <div class="heading h4">
+        <a href="#access">Access</a>
+      </div>
+      <div class="heading h4">
+        <a href="#theme">Theme</a>
+      </div>
+      <div class="heading h4">
+        <a href="#articles">Articles</a>
+      </div>
+      <div class="heading h3">
+        <a href="#files%20structure">Files structure</a>
+      </div>
+      <div class="heading h3">
+        <a href="#registering%20a%20package">Registering a Package</a>
+      </div>
+      <div class="heading h3">
+        <a href="#dependency%20injection">Dependency Injection</a>
+      </div>
+      <div class="heading h3">
+        <a href="#angular%20modules%20and%20dependencies">Angular Modules and Dependencies</a>
+      </div>
+      <div class="heading h3">
+        <a href="#assets%20and%20aggregation">Assets and Aggregation</a>
+      </div>
+      <div class="heading h3">
+        <a href="#settings%20object">Settings Object</a>
+      </div>
+      <div class="heading h3">
+        <a href="#express%20routes">Express Routes</a>
+      </div>
+      <div class="heading h3">
+        <a href="#angular%20routes">Angular Routes</a>
+      </div>
+      <div class="heading h3">
+        <a href="#menu%20system">Menu System</a>
+      </div>
+      <div class="heading h3">
+        <a href="#html%20view%20rendering">Html View Rendering</a>
+      </div>
+      <div class="heading h3">
+        <a href="#overriding%20the%20default%20layouts">Overriding the default layouts</a>
+      </div>
+      <div class="heading h3">
+        <a href="#overriding%20views">Overriding views</a>
+      </div>
+      <div class="heading h3">
+        <a href="#creating%20your%20own%20package">Creating your own package</a>
+      </div>
+      <div class="heading h3">
+        <a href="#deleting%20a%20package">Deleting a package</a>
+      </div>
+      <div class="heading h3">
+        <a href="#contributing%20your%20package">Contributing your package</a>
+      </div>
+      <div class="heading h2">
+        <a href="#mean%20network">MEAN Network</a>
+      </div>
+      <div class="heading h3">
+        <a href="#network%20user%20management">Network User Management</a>
+      </div>
+      <div class="heading h4">
+        <a href="#registration">Registration</a>
+      </div>
+      <div class="heading h4">
+        <a href="#identity">Identity</a>
+      </div>
+      <div class="heading h3">
+        <a href="#deploy">Deploy</a>
+      </div>
+      <div class="heading h2">
+        <a href="#config">Config</a>
+      </div>
+      <div class="heading h3">
+        <a href="#environmental%20settings">Environmental Settings</a>
+      </div>
+      <div class="heading h3">
+        <a href="#logging">Logging</a>
+      </div>
+      <div class="heading h2">
+        <a href="#staying%20up%20to%20date">Staying up to date</a>
+      </div>
+      <div class="heading h2">
+        <a href="#hosting%20mean">Hosting MEAN</a>
+      </div>
+      <div class="heading h3">
+        <a href="#heroku">Heroku</a>
+      </div>
+      <div class="heading h3">
+        <a href="#openshift">OpenShift</a>
+      </div>
+      <div class="heading h2">
+        <a href="#more%20information">More Information</a>
+      </div>
+      <div class="heading h2">
+        <a href="#credits">Credits</a>
+      </div>
+      <div class="heading h2">
+        <a href="#license">License</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="docs markdown"><p><a href="https://travis-ci.org/linnovate/mean"><img src="https://travis-ci.org/linnovate/mean.svg" alt="Build Status" title="" /></a>
+<a href="https://david-dm.org/linnovate/mean"><img src="https://david-dm.org/linnovate/mean.svg" alt="Dependencies Status" title="" /></a>
+<a href="https://gitter.im/linnovate/mean?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/JoinChat.svg" alt="Gitter" title="" /></a></p>
+
+
+<div class="pilwrap" id="%20mean%20stack">
+  <h1>
+    <a href="#%20mean%20stack" name="%20mean%20stack" class="pilcrow">&#182;</a>
+    <a href="http://mean.io/"><img src="http://mean.io/system/assets/img/logos/meanlogo.png" alt="MEAN Logo" title="" /></a> MEAN Stack
+  </h1>
+</div>
+
+
+<p>MEAN is a framework for an easy starting point with <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://www.nodejs.org/">Node.js</a>, <a href="http://expressjs.com/">Express</a>, and <a href="http://angularjs.org/">AngularJS</a> based applications. It is designed to give you a quick and organized way to start developing MEAN based web apps with useful modules like Mongoose and Passport pre-bundled and configured. We mainly try to take care of the connection points between existing popular frameworks and solve common integration problems.</p>
+
+
+<div class="pilwrap" id="prerequisite%20technologies">
+  <h2>
+    <a href="#prerequisite%20technologies" name="prerequisite%20technologies" class="pilcrow">&#182;</a>
+    Prerequisite Technologies
+  </h2>
+</div>
+
+
+
+<div class="pilwrap" id="linux">
+  <h3>
+    <a href="#linux" name="linux" class="pilcrow">&#182;</a>
+    Linux
+  </h3>
+</div>
+
+
+<ul>
+<li><em>Node.js</em> - <a href="http://nodejs.org/download/">Download</a> and Install Node.js, nodeschool has free <a href=" http://nodeschool.io/#workshoppers">node tutorials</a> to get you started.</li>
+<li><em>MongoDB</em> - <a href="http://www.mongodb.org/downloads">Download</a> and Install mongodb - <a href="http://docs.mongodb.org/manual">Checkout their manual</a> if you're just starting.</li>
+</ul>
+
+<p>If you're using ubuntu, this is the preferred repository to use...</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>curl -sL https://deb.nodesource.com/setup <span class="p">|</span> sudo bash -
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install nodejs
+</code></pre></div>
+
+
+
+<ul>
+<li><em>Git</em> - Get git using a package manager or <a href="http://git-scm.com/downloads">download</a> it.</li>
+</ul>
+
+
+<div class="pilwrap" id="windows">
+  <h3>
+    <a href="#windows" name="windows" class="pilcrow">&#182;</a>
+    Windows
+  </h3>
+</div>
+
+
+<ul>
+<li><em>Node.js</em> - <a href="http://nodejs.org/download/">Download</a> and Install Node.js, nodeschool has free <a href=" http://nodeschool.io/#workshoppers">node tutorials</a> to get you started.</li>
+<li><em>MongoDB</em> - Follow the great tutorial from the mongodb site - <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows">"Install Mongodb On Windows"</a></li>
+<li><em>Git</em> - The easiest way to install git and then run the rest of the commands through the <em>git bash</em> application (via command prompt) is by downloading and installing <a href="http://git-scm.com/download/win">Git for Windows</a></li>
+</ul>
+
+
+<div class="pilwrap" id="osx">
+  <h3>
+    <a href="#osx" name="osx" class="pilcrow">&#182;</a>
+    OSX
+  </h3>
+</div>
+
+
+<ul>
+<li><em>Node.js</em> -  <a href="http://nodejs.org/download/">Download</a> and Install Node.js or use the packages within brew or macports.</li>
+<li><em>MongoDB</em> - Follow the tutorial here - <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">Install mongodb on OSX</a></li>
+<li><em>git</em> - Get git <a href="http://git-scm.com/download/mac">from here</a>.</li>
+</ul>
+
+
+<div class="pilwrap" id="prerequisite%20packages">
+  <h2>
+    <a href="#prerequisite%20packages" name="prerequisite%20packages" class="pilcrow">&#182;</a>
+    Prerequisite packages
+  </h2>
+</div>
+
+
+<ul>
+<li>Mean currently works with either grunt or gulp..</li>
+</ul>
+
+<div class='highlight'><pre><code language=''>$ npm install -g gulp
+// and bower
+$ npm install -g bower 
+</code></pre></div>
+
+
+<div class="pilwrap" id="installation">
+  <h2>
+    <a href="#installation" name="installation" class="pilcrow">&#182;</a>
+    Installation
+  </h2>
+</div>
+
+
+<p>To start with MEAN install the <code>mean-cli</code> package from NPM.
+This will add the <em>mean</em> command which lets you interact (install, manage, update ...) your Mean based application.</p>
+
+
+<div class="pilwrap" id="install%20the%20mean%20cli">
+  <h3>
+    <a href="#install%20the%20mean%20cli" name="install%20the%20mean%20cli" class="pilcrow">&#182;</a>
+    Install the MEAN CLI
+  </h3>
+</div>
+
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm install -g mean-cli
+<span class="nv">$ </span>mean init &lt;myApp&gt;
+<span class="nv">$ </span><span class="nb">cd</span> &lt;myApp&gt; <span class="o">&amp;&amp;</span> npm install
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="invoke%20node%20with%20a%20task%20manager">
+  <h3>
+    <a href="#invoke%20node%20with%20a%20task%20manager" name="invoke%20node%20with%20a%20task%20manager" class="pilcrow">&#182;</a>
+    Invoke node with a task manager
+  </h3>
+</div>
+
+
+<p>Mean supports the gulp task runner for various services which are applied on the code.
+To start your application run - </p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>gulp
+</code></pre></div>
+
+
+
+<p>Alternatively, when not using <code>gulp</code> (and for production environments) you can run:</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>node server
+</code></pre></div>
+
+
+
+<p>Then, open a browser and go to:</p>
+
+
+<div class="highlight"><pre><code>http://localhost:3000
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="troubleshooting">
+  <h3>
+    <a href="#troubleshooting" name="troubleshooting" class="pilcrow">&#182;</a>
+    Troubleshooting
+  </h3>
+</div>
+
+
+<p>During installation depending on your os and prerequisite versions you may encounter some issues.</p>
+
+<p>Most issues can be solved by one of the following tips, but if you are unable to find a solution feel free to contact us via the repository issue tracker or the links provided below.</p>
+
+
+<div class="pilwrap" id="update%20npm%2C%20bower%20or%20grunt">
+  <h4>
+    <a href="#update%20npm%2C%20bower%20or%20grunt" name="update%20npm%2C%20bower%20or%20grunt" class="pilcrow">&#182;</a>
+    Update NPM, Bower or Grunt
+  </h4>
+</div>
+
+
+<p>Sometimes you may find there is a weird error during install like npm's <em>Error: ENOENT</em>. Usually updating those tools to the latest version solves the issue.</p>
+
+<ul>
+<li>Updating NPM:</li>
+</ul>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm update -g npm
+</code></pre></div>
+
+
+
+<ul>
+<li>Updating Grunt:</li>
+</ul>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm update -g grunt-cli
+</code></pre></div>
+
+
+
+<ul>
+<li>Updating Bower:</li>
+</ul>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm update -g bower
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="cleaning%20npm%20and%20bower%20cache">
+  <h4>
+    <a href="#cleaning%20npm%20and%20bower%20cache" name="cleaning%20npm%20and%20bower%20cache" class="pilcrow">&#182;</a>
+    Cleaning NPM and Bower cache
+  </h4>
+</div>
+
+
+<p>NPM and Bower has a caching system for holding packages that you already installed.
+We found that often cleaning the cache solves some troubles this system creates.</p>
+
+<ul>
+<li>NPM Clean Cache:</li>
+</ul>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm cache clean
+</code></pre></div>
+
+
+
+<ul>
+<li>Bower Clean Cache:</li>
+</ul>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>bower cache clean
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="installation%20problems%20on%20windows%208%20%2F%208.1">
+  <h4>
+    <a href="#installation%20problems%20on%20windows%208%20%2F%208.1" name="installation%20problems%20on%20windows%208%20%2F%208.1" class="pilcrow">&#182;</a>
+    Installation problems on Windows 8 / 8.1
+  </h4>
+</div>
+
+
+<p>Some of Mean.io dependencies uses <a href="https://github.com/TooTallNate/node-gyp">node-gyp</a> with supported Python version 2.7.x. So if you see an error related to node-gyp rebuild follow next steps:</p>
+
+<ol>
+<li>install <a href="https://www.python.org/downloads/">Python 2.7.x</a></li>
+<li>install <a href="http://www.microsoft.com/en-us/download/details.aspx?id=34673">Microsoft Visual Studio C++ 2012 Express</a></li>
+<li>Run NPM update</li>
+</ol>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm update -g
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="git%20%22not%20found%22%20on%20windows">
+  <h4>
+    <a href="#git%20%22not%20found%22%20on%20windows" name="git%20%22not%20found%22%20on%20windows" class="pilcrow">&#182;</a>
+    Git "not found" on Windows
+  </h4>
+</div>
+
+
+<p>If you get this error when trying to <code>mean init</code>:</p>
+
+
+<div class="highlight"><pre><code>Prerequisite not installed: git
+</code></pre></div>
+
+
+
+<p>And you definitely have Git for Windows installed, then it's not included in your path. Find the folder containing git.exe (likely <code>C:\Program Files (x86)\Git\cmd</code>) and add it to your PATH.</p>
+
+
+<div class="pilwrap" id="technologies">
+  <h2>
+    <a href="#technologies" name="technologies" class="pilcrow">&#182;</a>
+    Technologies
+  </h2>
+</div>
+
+
+
+<div class="pilwrap" id="the%20mean%20stack">
+  <h3>
+    <a href="#the%20mean%20stack" name="the%20mean%20stack" class="pilcrow">&#182;</a>
+    The MEAN stack
+  </h3>
+</div>
+
+
+<p>MEAN is an acronym for <em>M</em>ongo, <em>E</em>xpress.js , <em>A</em>ngular.js and <em>N</em>ode.js</p>
+
+<dl class="dl-horizontal">
+<dt>MongoDB</dt>
+<dd>Go through MongoDB Official Website and proceed to its Great Manual, which should help you understand NoSQL and MongoDB better.</dd>
+<dt>Express</dt>
+<dd>The best way to understand express is through its Official Website, particularly The Express Guide; you can also go through this StackOverflow thread for more resources.</dd>
+<dt>AngularJS</dt>
+<dd>Angular's Official Website is a great starting point. CodeSchool and google created a <a href="https://www.codeschool.com/courses/shaping-up-with-angular-js">great tutorial</a> for beginners, and the angular videos by <a href="https://egghead.io/">Egghead</a>.</dd>
+<dt>Node.js</dt>
+<dd>Start by going through Node.js Official Website and this StackOverflow thread, which should get you going with the Node.js platform in no time.</dd>
+</dl>
+
+
+<div class="pilwrap" id="additional%20tools">
+  <h3>
+    <a href="#additional%20tools" name="additional%20tools" class="pilcrow">&#182;</a>
+    Additional Tools
+  </h3>
+</div>
+
+
+<ul>
+<li><a href="http://mongoosejs.com/">Mongoose</a> - The mongodb node.js driver in charge of providing elegant mongodb object modeling for node.js</li>
+<li><a href="http://passportjs.org/">Passport</a> - An authentication middleware for Node.js which supports authentication using a username and password, Facebook, Twitter, and more.</li>
+<li><a href="http://getbootstrap.com/">Twitter Bootstrap</a> - The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects.</li>
+<li><a href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> - Bootstrap components written in pure AngularJS</li>
+</ul>
+
+
+<div class="pilwrap" id="cli">
+  <h2>
+    <a href="#cli" name="cli" class="pilcrow">&#182;</a>
+    CLI
+  </h2>
+</div>
+
+
+
+<div class="pilwrap" id="overview">
+  <h3>
+    <a href="#overview" name="overview" class="pilcrow">&#182;</a>
+    Overview
+  </h3>
+</div>
+
+
+<p>The MEAN CLI is a simple Command Line Interface for installing and managing MEAN applications. As a core module of the Mean.io project, it provides a number of useful tools to make interaction with your MEAN application easier, with features such as: scaffolding, module creation and admin, status checks, and user management.</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean
+<span class="nv">$ </span>mean --help
+<span class="nv">$ </span>mean <span class="nb">help</span>
+</code></pre></div>
+
+
+
+<p><code>mean help</code> can also be used in conjunction with any command to get more information about that particular functionality. For example, try <code>mean help init</code> to see the options for init</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean <span class="nb">help</span> <span class="o">[</span><span class="nb">command</span><span class="o">]</span>
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="users">
+  <h3>
+    <a href="#users" name="users" class="pilcrow">&#182;</a>
+    Users
+  </h3>
+</div>
+
+
+<p><p>Information can be display for a specific customer via <code>mean user email</code>. Email is required. User roles can be assigned or removed with the <code>--addRole (or -a)</code> and <code>--removeRole (or -r)</code> options, respectively.</p>
+  <p>For example, the <i>admin</i> role is required to edit tokens.</p></p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean user &lt;email&gt;
+<span class="nv">$ </span>mean user &lt;email&gt; --addRole &lt;role&gt;<span class="p">;</span>
+<span class="nv">$ </span>mean user &lt;email&gt; --removeRole &lt;role&gt;<span class="p">;</span>
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="packages">
+  <h3>
+    <a href="#packages" name="packages" class="pilcrow">&#182;</a>
+    Packages
+  </h3>
+</div>
+
+
+
+<div class="pilwrap" id="management">
+  <h4>
+    <a href="#management" name="management" class="pilcrow">&#182;</a>
+    Management
+  </h4>
+</div>
+
+
+<p><p class="alert alert-warning">All of the remaining of the commands must be run from the root folder of your MEAN application.</p>
+  <p>Contributed MEAN packages can be installed or uninstalled via the CLI. Also, currently installed modules can be viewed with the <code>list</code> command.</p></p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean list
+<span class="nv">$ </span>mean install &lt;module&gt;
+<span class="nv">$ </span>mean uninstall &lt;module&gt;
+</code></pre></div>
+
+
+
+<p><p class="alert alert-info">Mean packages installed via the installer are found in <i>/node_modules</i></p></p>
+
+
+<div class="pilwrap" id="search">
+  <h4>
+    <a href="#search" name="search" class="pilcrow">&#182;</a>
+    Search
+  </h4>
+</div>
+
+
+<p>To find new packages run the <em>mean search</em> command</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean search <span class="o">[</span>packagename<span class="o">]</span>
+</code></pre></div>
+
+
+
+<p><code>mean search</code> will return all of the available packages, <code>mean search [packagename]</code> will filter the search results.</p>
+
+
+<div class="pilwrap" id="scaffolding">
+  <h4>
+    <a href="#scaffolding" name="scaffolding" class="pilcrow">&#182;</a>
+    Scaffolding
+  </h4>
+</div>
+
+
+<p>To create a new MEAN app, run <code>mean init</code>. Name for the application is optional. If no name is provided, "mean" is used. The MEAN project will be cloned from GitHub into a directory of the application name.</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean init <span class="o">[</span>name<span class="o">]</span>
+<span class="nv">$ </span><span class="nb">cd</span> <span class="o">[</span>name<span class="o">]</span> <span class="o">&amp;&amp;</span> npm install
+</code></pre></div>
+
+
+
+<p><p class="alert alert-info">Note: <a href="http://git-scm.com/downloads">git</a> must be installed for this command to work properly.</p></p>
+
+
+<div class="pilwrap" id="misc">
+  <h3>
+    <a href="#misc" name="misc" class="pilcrow">&#182;</a>
+    Misc
+  </h3>
+</div>
+
+
+
+<div class="pilwrap" id="status">
+  <h4>
+    <a href="#status" name="status" class="pilcrow">&#182;</a>
+    Status
+  </h4>
+</div>
+
+
+<p>Check the database connection for a particular environment (e.g. development (default), test, production) and make sure that the meanio command line version is up to date.</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean status
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="docs">
+  <h4>
+    <a href="#docs" name="docs" class="pilcrow">&#182;</a>
+    Docs
+  </h4>
+</div>
+
+
+<p>A simple shortcut to open the mean documentation in your default browser.</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean docs
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="packages_1">
+  <h2>
+    <a href="#packages_1" name="packages_1" class="pilcrow">&#182;</a>
+    Packages
+  </h2>
+</div>
+
+
+<p>Everything in mean.io is a package and when extending mean with custom functionality make sure you create your own package and do not alter the core packages.</p>
+
+<p>The mean.io package system allows developers to create modular code that provides useful tools that other mean developers can use. The packages, when published, are plug-and-play and are used in a way very similar to traditional npm packages.</p>
+
+<p>The mean.io package system integrates all the packages into the mean project as if the code was part of mean itself and provides the developers with all the necessary tools required to integrate their package into the host project.</p>
+
+<p>There are two types of packages:</p>
+
+<p><strong>Custom Packages</strong> are generated by the mean scaffolder and contain most of your application logic. Custom packages are found in <em>/packages/custom</em> and can be published as a contrib package for use by other developers.</p>
+
+<p><strong>Contrib Packages</strong> are installed by the mean installer and are found at <em>/packages/contrib</em>. Contrib packages are "plug and play".</p>
+
+
+<div class="pilwrap" id="core%20packages">
+  <h3>
+    <a href="#core%20packages" name="core%20packages" class="pilcrow">&#182;</a>
+    Core Packages
+  </h3>
+</div>
+
+
+<p>All <code>Core</code> packages can be overridden by other packages allowing you to extend and adapt it to fit your specific needs. See <code>Overriding views</code> for detailed examples.</p>
+
+
+<div class="pilwrap" id="system">
+  <h4>
+    <a href="#system" name="system" class="pilcrow">&#182;</a>
+    System
+  </h4>
+</div>
+
+
+<p>The "system" package creates the basic pages as well as defines the layout of the site and integrates the menu into the page. The system package also allows us to define things such as rendering engines, static files and routing on the client and server side.</p>
+
+
+<div class="pilwrap" id="users_1">
+  <h4>
+    <a href="#users_1" name="users_1" class="pilcrow">&#182;</a>
+    Users
+  </h4>
+</div>
+
+
+<p>The "users" package creates the database model of the user, provides validation as well as various login and registration features.</p>
+
+
+<div class="pilwrap" id="access">
+  <h4>
+    <a href="#access" name="access" class="pilcrow">&#182;</a>
+    Access
+  </h4>
+</div>
+
+
+<p>The "access" package manages permissions and middleware. It controls the various authentication methods and is dependent on the users package</p>
+
+
+<div class="pilwrap" id="theme">
+  <h4>
+    <a href="#theme" name="theme" class="pilcrow">&#182;</a>
+    Theme
+  </h4>
+</div>
+
+
+<p>The "theme" package adds some basic CSS and other assets such as images and backgrounds</p>
+
+
+<div class="pilwrap" id="articles">
+  <h4>
+    <a href="#articles" name="articles" class="pilcrow">&#182;</a>
+    Articles
+  </h4>
+</div>
+
+
+<p>The "articles" package is typically used as an example starting point for managing content that might be used in a blog or cms. The full CRUD is implemented on the server and client.</p>
+
+
+<div class="pilwrap" id="files%20structure">
+  <h3>
+    <a href="#files%20structure" name="files%20structure" class="pilcrow">&#182;</a>
+    Files structure
+  </h3>
+</div>
+
+
+<p>The file structure is similar to that of the mean project itself</p>
+
+<p><code>Fundamental</code> Files at the <code>root</code> of the package</p>
+
+<p><strong>Server</strong></p>
+
+<p>Packages are registered in the <strong>app.js</strong> 
+Defines package name, version and <code>mean=true</code> in the <strong>package.json</strong>   </p>
+
+<p>All of the Server side code resides in the <code>/server</code> directory.</p>
+
+
+<div class="highlight"><pre><code><span class="nx">Server</span>
+<span class="o">---</span> <span class="nx">config</span>        <span class="err">#</span> <span class="nx">Configuration</span> <span class="nx">files</span>
+<span class="o">---</span> <span class="nx">controllers</span>   <span class="err">#</span> <span class="nx">Server</span> <span class="nx">side</span> <span class="nx">logic</span> <span class="nx">goes</span> <span class="nx">here</span>
+<span class="o">---</span> <span class="nx">models</span>        <span class="err">#</span> <span class="nx">Database</span> <span class="nx">Schema</span> <span class="nx">Models</span>
+<span class="o">---</span> <span class="nx">routes</span>        <span class="err">#</span> <span class="nx">Rest</span> <span class="nx">api</span> <span class="nx">endpoints</span> <span class="k">for</span> <span class="nx">routing</span>
+<span class="o">---</span> <span class="nx">views</span>         <span class="err">#</span> <span class="nx">Swig</span> <span class="nx">based</span> <span class="nx">html</span> <span class="nx">rendering</span>
+</code></pre></div>
+
+
+
+<p><strong>Client</strong></p>
+
+<p>All of the Client side code resides in the <code>/public</code> directory.</p>
+
+
+<div class="highlight"><pre><code><span class="kr">public</span>            
+<span class="o">---</span> <span class="nx">assets</span>        <span class="err">#</span> <span class="nx">JavaScript</span><span class="o">/</span><span class="nx">CSS</span><span class="o">/</span><span class="nx">Images</span> <span class="p">(</span><span class="nx">not</span> <span class="nx">aggregated</span><span class="p">)</span>
+<span class="o">---</span> <span class="nx">controllers</span>   <span class="err">#</span> <span class="nx">Angular</span> <span class="nx">controllers</span>
+<span class="o">---</span> <span class="nx">config</span>        <span class="err">#</span> <span class="nx">Contains</span> <span class="nx">routing</span> <span class="nx">files</span>
+<span class="o">---</span> <span class="nx">services</span>      <span class="err">#</span> <span class="nx">Angular</span> <span class="nx">services</span> <span class="p">(</span><span class="nx">also</span> <span class="nx">directive</span> <span class="nx">and</span> <span class="nx">filter</span> <span class="nx">folders</span><span class="p">)</span>
+<span class="o">---</span> <span class="nx">views</span>         <span class="err">#</span> <span class="nx">Angular</span> <span class="nx">views</span>
+</code></pre></div>
+
+
+
+<p>All JavaScript within <code>public</code> is automatically aggregated with the exception of files in <code>public/assets</code>, which can be manually added using the <code>aggregateAsset()</code> function.</p>
+
+<p>Files within the <code>public</code> directory of the package can be accessed externally at <code>/[package-name]/path-to-file-relative-to-public</code>. For example, to access the <code>Tokens</code> Angular controller, <code>tokens/controllers/tokens.js</code>.</p>
+
+
+<div class="pilwrap" id="registering%20a%20package">
+  <h3>
+    <a href="#registering%20a%20package" name="registering%20a%20package" class="pilcrow">&#182;</a>
+    Registering a Package
+  </h3>
+</div>
+
+
+<p>In order for a Package to work it needs to be registered. By doing this you make the package system aware that you are ready and that other packages are able to depend on you. The packages are registered from within <code>app.js</code>.</p>
+
+<p>When registering you are required to declare all your dependencies in order for the package system to make them available to your package.</p>
+
+
+<div class="highlight"><pre><code><span class="c1">// Example of registering the MyPackage</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">database</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+
+
+<p>MEAN has 3 pre registered dependencies:
+  - <code>app</code> Makes the express app available .
+  - <code>auth</code> Includes some basic authentication functions
+  - <code>database</code> Contains the Mongoose database connection</p>
+
+<blockquote>
+  <p>All dependencies specified must be registered in order to use them</p>
+</blockquote>
+
+
+<div class="pilwrap" id="dependency%20injection">
+  <h3>
+    <a href="#dependency%20injection" name="dependency%20injection" class="pilcrow">&#182;</a>
+    Dependency Injection
+  </h3>
+</div>
+
+
+<blockquote>
+  <p>An injection is the passing of a dependency (a service) to a dependent
+  object (a client). The service is made part of the client's state.
+  Passing the service to the client, rather than allowing a client to
+  build or find the service, is the fundamental requirement of the
+  pattern. <a href="http://en.wikipedia.org/wiki/Dependency_injection">Wikipedia</a></p>
+</blockquote>
+
+<p>Dependency injection allows you to declare what dependencies you require and rely on the package system to resolve all dependencies for you. Any package registered is automatically made available to anyone who would like to depend on them.</p>
+
+<p>Looking again at the registration example we can see that <code>MyPackage</code> depends on the <code>Tokens</code> package and can make use of its full functionality, including overriding it.</p>
+
+
+<div class="highlight"><pre><code><span class="c1">// Example of registering the tokens package</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">database</span><span class="p">,</span> <span class="nx">Tokens</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// I can make use of the tokens within my module</span>
+  <span class="nx">MyPackage</span><span class="p">.</span><span class="nx">someExampleFunction</span><span class="p">(</span><span class="s1">&#39;some parameter&#39;</span><span class="p">);</span>
+
+  <span class="c1">// I can override functions</span>
+  <span class="nx">MyPackage</span><span class="p">.</span><span class="nx">someExampleFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//my custom logic goes here</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>Packages when in code are used in a capitalized form</p>
+</blockquote>
+
+
+<div class="pilwrap" id="angular%20modules%20and%20dependencies">
+  <h3>
+    <a href="#angular%20modules%20and%20dependencies" name="angular%20modules%20and%20dependencies" class="pilcrow">&#182;</a>
+    Angular Modules and Dependencies
+  </h3>
+</div>
+
+
+<p>Every package registration automatically creates a corresponding angular module of the form <code>mean.[package-name]</code></p>
+
+<p>The package system injects this information into the mean init functions and allows developers to base their controllers, services, filters, directives etc on either an existing module or on their own one.</p>
+
+<p>In addition you are able to declare which angular dependencies you want your angular module to use.</p>
+
+<p>Below is an example of adding an angular dependency to our angular module.</p>
+
+
+<div class="highlight"><pre><code><span class="c1">// Example of adding an angular dependency of the ngDragDrop to the</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">angularDependencies</span><span class="p">([</span><span class="s1">&#39;ngDragDrop&#39;</span><span class="p">]);</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>See the assets section for an example how to add external libraries to
+  the client such as the <code>gDragDrop</code>javascript library</p>
+</blockquote>
+
+
+<div class="pilwrap" id="assets%20and%20aggregation">
+  <h3>
+    <a href="#assets%20and%20aggregation" name="assets%20and%20aggregation" class="pilcrow">&#182;</a>
+    Assets and Aggregation
+  </h3>
+</div>
+
+
+<p>All assets such as images, javascript libraries and CSS stylesheets should be within <code>public/assets</code> of the package file structure.</p>
+
+<p>Javascript and CSS from <code>assets</code> can be aggregated to the global aggregation files. By default all javascript is automatically wrapped within an anonymous function unless given the option <code>{global:true}</code> to not enclose the javascript within a contained scope</p>
+
+
+<div class="highlight"><pre><code><span class="c1">//Adding jquery to the mean project</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">aggregateAsset</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span><span class="s1">&#39;jquery.min.js&#39;</span><span class="p">);</span>
+
+<span class="c1">//Adding another library - global by default is false</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">aggregateAsset</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span><span class="s1">&#39;jquery.min.js&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">global</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span>
+
+<span class="c1">//Adding some css to the mean project</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">aggregateAsset</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">,</span><span class="s1">&#39;default.css&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>Javascript files outside of assets are automatically aggregated and
+  injected into the mean project. As a result libraries that you do not
+  want aggregated should be placed within <code>public/assets/js</code></p>
+</blockquote>
+
+<p>The aggregation supports the ability to control the location of where to inject the aggregated code and if you add a weight and a group to your aggregateAsset method you can make sure it's included in the correct region.</p>
+
+
+<div class="highlight"><pre><code><span class="nx">MyPackage</span><span class="p">.</span><span class="nx">aggregateAsset</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span><span class="s1">&#39;first.js&#39;</span><span class="p">,{</span><span class="nx">global</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>  <span class="nx">weight</span><span class="o">:</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="nx">group</span><span class="o">:</span> <span class="s1">&#39;header&#39;</span><span class="p">});</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>The line that gets loaded in your head.html calls the header group and injects the js you want to include first-
+  in packages/system/server/views/includes/head.html </p>
+  
+  <script type="text/javascript" src="/modules/aggregated.js?group=header"></script>
+</blockquote>
+
+
+<div class="pilwrap" id="settings%20object">
+  <h3>
+    <a href="#settings%20object" name="settings%20object" class="pilcrow">&#182;</a>
+    Settings Object
+  </h3>
+</div>
+
+
+<p>The settings object is a persistence object that is stored in the packages collection and allows for saving persistent information per package such as configuration options or admin settings for the package.</p>
+
+<p>Receives two arguments the first being the settings object the second is a callback function</p>
+
+
+<div class="highlight"><pre><code><span class="nx">MyPackage</span><span class="p">.</span><span class="nx">settings</span><span class="p">({</span><span class="s1">&#39;someSetting&#39;</span><span class="o">:</span><span class="s1">&#39;some value&#39;</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// You will receive the settings object on success</span>
+<span class="p">});</span>
+
+<span class="c1">// Another save settings example this time with no callback</span>
+<span class="c1">// This writes over the last settings.</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">settings</span><span class="p">({</span><span class="s1">&#39;anotherSettings&#39;</span><span class="o">:</span><span class="s1">&#39;some value&#39;</span><span class="p">});</span>
+
+<span class="c1">// Get settings. Retrieves latest saved settings</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">settings</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// You now have the settings object</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>Each time you save settings you overwrite your previous value.
+  Settings are designed to be used to store basic configuration options
+  and should not be used as a large data store</p>
+</blockquote>
+
+
+<div class="pilwrap" id="express%20routes">
+  <h3>
+    <a href="#express%20routes" name="express%20routes" class="pilcrow">&#182;</a>
+    Express Routes
+  </h3>
+</div>
+
+
+<p>All routing to server side controllers is handled by express routes. The package system uses the typical express approach. The package system has a route function that passes along the package object to the main routing file typically <code>server/routes/myPackage.js</code></p>
+
+<p>By default the Package Object is passed to the routes along with the other arguments
+  <code>MyPackage.routes(app, auth, database);</code></p>
+
+<p>Example from the <code>server/routes/myPackage.js</code></p>
+
+
+<div class="highlight"><pre><code><span class="c1">// The Package is past automatically as first parameter</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">MyPackage</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">database</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// example route</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/myPackage/example/anyone&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Anyone can access this&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="angular%20routes">
+  <h3>
+    <a href="#angular%20routes" name="angular%20routes" class="pilcrow">&#182;</a>
+    Angular Routes
+  </h3>
+</div>
+
+
+<p>The angular routes are defined in <code>public/routes/myPackage.js</code>. Just like the latest version of mean, the packages  use the <code>$stateProvider</code></p>
+
+
+<div class="highlight"><pre><code><span class="nx">$stateProvider</span>
+  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;myPackage example page&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/myPackage/example&#39;</span><span class="p">,</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;myPackage/views/index.html&#39;</span>
+  <span class="p">});</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>The angular views are publically accessible via templateUrl when
+  prefixed with the package name</p>
+</blockquote>
+
+
+<div class="pilwrap" id="menu%20system">
+  <h3>
+    <a href="#menu%20system" name="menu%20system" class="pilcrow">&#182;</a>
+    Menu System
+  </h3>
+</div>
+
+
+<p>Packages are able to hook into an existing menu system and add links to various menus integrated within Mean.</p>
+
+<p>Each link specifies its <code>title</code>, <code>template</code>, <code>menu</code> and <code>role</code> that is allowed to see the link. If the menu specified does not exist, a new menu will be created. The menu object is made accessible within the client by means of a <em>menu angular service</em> that queries the menu controller for information about links.</p>
+
+<p>Below is an example how to add a link to the main menu from <code>app.js</code></p>
+
+
+<div class="highlight"><pre><code><span class="c1">//We are adding a link to the main menu for all authenticated users</span>
+<span class="nx">MyPackage</span><span class="p">.</span><span class="nx">menus</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;myPackage example page&quot;</span><span class="p">,</span>
+  <span class="nx">link</span><span class="o">:</span> <span class="s2">&quot;myPackage example page&quot;</span><span class="p">,</span>
+  <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;authenticated&quot;</span><span class="p">],</span>
+  <span class="nx">menu</span><span class="o">:</span> <span class="s2">&quot;main&quot;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>You can look at the angular header controller in the mean project for
+  more info. You can find it <code>public/system/controllers/header.js</code> and
+  see how the menu service is implemented</p>
+</blockquote>
+
+
+<div class="pilwrap" id="html%20view%20rendering">
+  <h3>
+    <a href="#html%20view%20rendering" name="html%20view%20rendering" class="pilcrow">&#182;</a>
+    Html View Rendering
+  </h3>
+</div>
+
+
+<p>The packages come built in with a rendering function allowing packages to render static html. The default templating engine is <em>swig</em>. The views are found in <code>server/views</code> of the package and should end with the <code>.html</code> suffix</p>
+
+<p>Below is an example rendering some simple html</p>
+
+
+<div class="highlight"><pre><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/myPackage/example/render&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">MyPackage</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">packageName</span><span class="o">:</span><span class="s1">&#39;myPackage&#39;</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//Rendering a view from the Package server/views</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="overriding%20the%20default%20layouts">
+  <h3>
+    <a href="#overriding%20the%20default%20layouts" name="overriding%20the%20default%20layouts" class="pilcrow">&#182;</a>
+    Overriding the default layouts
+  </h3>
+</div>
+
+
+<p>One is able to override the default layout of the application through a custom package.</p>
+
+<p>Below is an example overriding the default layout of system and instead using the layourts found locally within the package</p>
+
+
+<div class="highlight"><pre><code><span class="nx">MyPackage</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">system</span><span class="p">,</span> <span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">,</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/server/views&#39;</span><span class="p">);</span>
+  <span class="c1">// ...</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>Please note that the package must depend on <code>System</code> to ensure it is
+  evaluated after <code>System</code> and can thus override the views folder</p>
+</blockquote>
+
+
+<div class="pilwrap" id="overriding%20views">
+  <h3>
+    <a href="#overriding%20views" name="overriding%20views" class="pilcrow">&#182;</a>
+    Overriding views
+  </h3>
+</div>
+
+
+<p>You may override public views used by certain core packages.  To create a custom home page, you would create a custom package and modify the script in it's public folder like so:</p>
+
+
+<div class="highlight"><pre><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.mycustompackage&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;mean.system&#39;</span><span class="p">])</span>
+<span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$viewPathProvider&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$viewPathProvider</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$viewPathProvider</span><span class="p">.</span><span class="nx">override</span><span class="p">(</span><span class="s1">&#39;system/views/index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;mycustompackage/views/myhomepage.html&#39;</span><span class="p">);</span>
+<span class="p">}]);</span>
+</code></pre></div>
+
+
+
+<p>This will render <em>mycustompackage/views/myhomepage.html</em> as the home page.</p>
+
+
+<div class="pilwrap" id="creating%20your%20own%20package">
+  <h3>
+    <a href="#creating%20your%20own%20package" name="creating%20your%20own%20package" class="pilcrow">&#182;</a>
+    Creating your own package
+  </h3>
+</div>
+
+
+<p>To create your own package and scaffold its initial code, run the following command:</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean package &lt;packageName&gt;
+</code></pre></div>
+
+
+
+<p>This will create a package under <em>/packages/custom/pkgName</em></p>
+
+
+<div class="pilwrap" id="deleting%20a%20package">
+  <h3>
+    <a href="#deleting%20a%20package" name="deleting%20a%20package" class="pilcrow">&#182;</a>
+    Deleting a package
+  </h3>
+</div>
+
+
+<p>To delete your package, and remove its files:</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean uninstall myPackage
+</code></pre></div>
+
+
+
+<p>Where "myPackage" is the name of your package.</p>
+
+
+<div class="pilwrap" id="contributing%20your%20package">
+  <h3>
+    <a href="#contributing%20your%20package" name="contributing%20your%20package" class="pilcrow">&#182;</a>
+    Contributing your package
+  </h3>
+</div>
+
+
+<p>Once your package is in good shape and you want to share it with the world you can start the process of contributing it and submiting it so it can be included in the package repository.
+To contribute your package register to the network (see the section below) and run</p>
+
+<p><code>bash 
+$ mean register # register to the mean network (see below)
+$ cd &lt;packages/custom/pkgName&gt;
+$ mean publish
+</code></p>
+
+
+<div class="pilwrap" id="mean%20network">
+  <h2>
+    <a href="#mean%20network" name="mean%20network" class="pilcrow">&#182;</a>
+    MEAN Network
+  </h2>
+</div>
+
+
+<p>Mean is a stand-alone instance that you can install locally or host on your server.
+We want to provide value to developers and are assembling a set of services which will be called the mean network.
+We're building all of this as we speak but we allready have some elements in place.</p>
+
+
+<div class="pilwrap" id="network%20user%20management">
+  <h3>
+    <a href="#network%20user%20management" name="network%20user%20management" class="pilcrow">&#182;</a>
+    Network User Management
+  </h3>
+</div>
+
+
+
+<div class="pilwrap" id="registration">
+  <h4>
+    <a href="#registration" name="registration" class="pilcrow">&#182;</a>
+    Registration
+  </h4>
+</div>
+
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean register
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="identity">
+  <h4>
+    <a href="#identity" name="identity" class="pilcrow">&#182;</a>
+    Identity
+  </h4>
+</div>
+
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>mean whoami
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="deploy">
+  <h3>
+    <a href="#deploy" name="deploy" class="pilcrow">&#182;</a>
+    Deploy
+  </h3>
+</div>
+
+
+<p>Coming soon!</p>
+
+
+<div class="pilwrap" id="config">
+  <h2>
+    <a href="#config" name="config" class="pilcrow">&#182;</a>
+    Config
+  </h2>
+</div>
+
+
+<p>All the configuration is specified in the <a href="/config/">config</a> folder,
+through the <a href="config/env/">env</a> files, and is orchestrated through the <a href="https://github.com/linnovate/meanio">meanio</a> NPM module.
+Here you will need to specify your application name, database name, and hook up any social app keys if you want integration with Twitter, Facebook, GitHub, or Google.</p>
+
+
+<div class="pilwrap" id="environmental%20settings">
+  <h3>
+    <a href="#environmental%20settings" name="environmental%20settings" class="pilcrow">&#182;</a>
+    Environmental Settings
+  </h3>
+</div>
+
+
+<p>There is a shared environment config: <strong>all</strong></p>
+
+<ul>
+<li><strong>root</strong> - This the default root path for the application.</li>
+<li><strong>port</strong> - DEPRECATED to <strong>http.port</strong> or <strong>https.port</strong>.</li>
+<li><strong>http.port</strong> - This sets the default application port.</li>
+<li><strong>https</strong> - These settings are for running HTTPS / SSL for a secure application.</li>
+<li><strong>port</strong> - This sets the default application port for HTTPS / SSL. If HTTPS is not used then is value is to be set to <strong>false</strong> which is the default setting. If HTTPS is to be used the standard HTTPS port is <strong>443</strong>.</li>
+<li><strong>ssl.key</strong> - The path to public key.</li>
+<li><strong>ssl.cert</strong> - The path to certificate.</li>
+</ul>
+
+<p>There are three environments provided by default: <strong>development</strong>, <strong>test</strong>, and <strong>production</strong>.
+Each of these environments has the following configuration options:</p>
+
+<ul>
+<li><strong>db</strong> - This is where you specify the MongoDB / Mongoose settings</li>
+<li><strong>url</strong> - This is the url/name of the MongoDB database to use, and is set by default to <strong>mean-dev</strong> for the development environment.</li>
+<li><strong>debug</strong> - Setting this option to <strong>true</strong> will log the output all Mongoose executed collection methods to your console.  The default is set to <strong>true</strong> for the development environment.</li>
+<li><strong>options</strong> - These are the database options that will be passed directly to mongoose.connect in the <strong>production</strong> environment: [server, replset, user, pass, auth, mongos] (<a href='http://mongoosejs.com/docs/connections.html#options'>http://mongoosejs.com/docs/connections.html#options</a>) or read [this] (<a href='http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect-options'>http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect-options</a>) for more information.</li>
+<li><strong>app.name</strong> - This is the name of your app or website, and can be different for each environment. You can tell which environment you are running by looking at the TITLE attribute that your app generates.</li>
+<li><strong>Social OAuth Keys</strong> - Facebook, GitHub, Google, Twitter. You can specify your own social application keys here for each platform:
+<ul><li><strong>clientID</strong></li>
+<li><strong>clientSecret</strong></li>
+<li><strong>callbackURL</strong></li></ul></li>
+<li><strong>emailFrom</strong> - This is the from email address displayed when sending an email.</li>
+<li><strong>mailer</strong> - This is where you enter your email service provider, username and password.</li>
+</ul>
+
+<p>To run with a different environment, just specify NODE_ENV as you call grunt:</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ NODE_ENV</span><span class="o">=</span><span class="nb">test </span>grunt
+</code></pre></div>
+
+
+
+<p>If you are using node instead of grunt, it is very similar:</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ NODE_ENV</span><span class="o">=</span><span class="nb">test </span>node server
+</code></pre></div>
+
+
+
+<p>To simply run tests</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>npm <span class="nb">test</span>
+</code></pre></div>
+
+
+
+<blockquote>
+  <p>NOTE: Running Node.js applications in the <strong>production</strong> environment enables caching, which is disabled by default in all other environments.</p>
+</blockquote>
+
+
+<div class="pilwrap" id="logging">
+  <h3>
+    <a href="#logging" name="logging" class="pilcrow">&#182;</a>
+    Logging
+  </h3>
+</div>
+
+
+<p>As from mean-0.4.4 control over the logging format has been delgated to the env configuration files.
+The formats and implementation are done using the morgan node module and it's <a href="https://github.com/expressjs/morgan#predefined-formats">predefined format</a>
+Within each configuration file (config/env/development.js) for instance you state the format in the 'logging' object.</p>
+
+<div class='highlight'><pre><code language=''>'use strict';
+
+module.exports = {
+  db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
+  debug: true,
+  logging: {
+    format: 'tiny'
+  },
+</code></pre></div>
+
+<p>The default for the development environment uses <a href="https://github.com/expressjs/morgan#tiny">tiny format</a></p>
+
+<div class='highlight'><pre><code language=''>GET /system/views/index.html 304 2.379 ms - -
+GET /admin/menu/main 304 8.687 ms - -
+GET /system/assets/img/logos/meanlogo.png 304 2.803 ms - -
+GET /system/assets/img/backgrounds/footer-bg.png 304 4.481 ms - -
+GET /system/assets/img/ninja/footer-ninja.png 304 3.309 ms - -
+GET /system/assets/img/logos/linnovate.png 304 3.001 ms - -
+</code></pre></div>
+
+<p>The production uses the widely used <a href="https://github.com/expressjs/morgan#combined">combined format</a>.</p>
+
+<div class='highlight'><pre><code language=''>:1 - - [22/Mar/2015:13:13:42 +0000] "GET /modules/aggregated.js HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
+::1 - - [22/Mar/2015:13:13:42 +0000] "GET /modules/aggregated.js?group=header HTTP/1.1" 200 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
+::1 - - [22/Mar/2015:13:13:42 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
+::1 - - [22/Mar/2015:13:13:42 +0000] "GET /modules/aggregated.css HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
+</code></pre></div>
+
+
+<div class="pilwrap" id="staying%20up%20to%20date">
+  <h2>
+    <a href="#staying%20up%20to%20date" name="staying%20up%20to%20date" class="pilcrow">&#182;</a>
+    Staying up to date
+  </h2>
+</div>
+
+
+<p>After initializing a project, you'll see that the root directory of your project is already a git repository. MEAN uses git to download and update its own code. To handle its own operations, MEAN creates a remote called <code>upstream</code>. This way you can use git as you would in any other project. </p>
+
+<p>To update your MEAN app to the latest version of MEAN</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>git pull upstream master
+<span class="nv">$ </span>npm install
+</code></pre></div>
+
+
+
+<p>To maintain your own public or private repository, add your repository as remote. See here for information on <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line">adding an existing project to GitHub</a>.</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>git remote add origin &lt;remote repository URL&gt;
+<span class="nv">$ </span>git push -u origin master
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="hosting%20mean">
+  <h2>
+    <a href="#hosting%20mean" name="hosting%20mean" class="pilcrow">&#182;</a>
+    Hosting MEAN
+  </h2>
+</div>
+
+
+<p>Since version 0.4.2 MEAN provides a command to easily upload your app to the <em>mean cloud</em>.
+To do so all you need to do is the following steps.</p>
+
+<ol>
+<li>make sure you have a unique name for your app (not the default mean) and that the name is in the package.json</li>
+<li>Run <code>mean deploy</code></li>
+<li>It will create the meanio remote which can be used to update your remote app by <code>git push meanio master</code></li>
+<li>You can add remote command using the --remote flag for instance to add a role to a user on the remote cloud instance run <code>mean user -a RoleName emailAddress --remote</code></li>
+<li>To get an idea of whats happening on the mean log (node.js based logging) run <code>mean logs -n 100</code> to get the last 100 lines...</li>
+</ol>
+
+
+<div class="pilwrap" id="heroku">
+  <h3>
+    <a href="#heroku" name="heroku" class="pilcrow">&#182;</a>
+    Heroku
+  </h3>
+</div>
+
+
+<p>Before you start make sure you have the <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>
+installed and an accessible MongoDB instance - you can try <a href="http://www.mongohq.com/">MongoHQ</a>
+which has an easy setup).</p>
+
+<p>Add the db string to the production env in <em>server/config/env/production.js</em>.</p>
+
+
+<div class="highlight"><pre><code><span class="nv">$ </span>git init
+<span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -m <span class="s2">&quot;initial version&quot;</span>
+<span class="nv">$ </span>heroku apps:create
+<span class="nv">$ </span>heroku config:add <span class="nv">NODE_ENV</span><span class="o">=</span>production
+<span class="nv">$ </span>heroku config:add <span class="nv">BUILDPACK_URL</span><span class="o">=</span>https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt.git
+<span class="nv">$ </span>git push heroku master
+<span class="nv">$ </span>heroku config:set <span class="nv">NODE_ENV</span><span class="o">=</span>production
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="openshift">
+  <h3>
+    <a href="#openshift" name="openshift" class="pilcrow">&#182;</a>
+    OpenShift
+  </h3>
+</div>
+
+
+<ol>
+<li>Register for an account on Openshift (<a href='http://www.openshift.com'>http://www.openshift.com</a>).</li>
+<li>Create an app on Openshift by choosing a 'Node' type site to create. Create the site by making Openshift use Linnovate's Openshift git repo as its source code (<a href='https://github.com/linnovate/mean-on-openshift.git'>https://github.com/linnovate/mean-on-openshift.git</a>).</li>
+<li>On the second screen after the new application has been created, add a Mongo database.</li>
+<li>When the site has been built, you can visit it on your newly created domain, which will look like my-domain.openshift.com. You may need to restart the instance on Openshift before you can see it. It will look like Mean.io boilerplate.</li>
+<li>On your new app's console page on Openshift, make a note of the git repo where the code lives. Clone that repo to your local computer where your mean.io app codebase is.</li>
+<li>Merge your completed local app into this new repo. You will have some conflicts, so merge carefully, line by line.</li>
+<li>Commit and push the repo with the Openshift code back up to Openshift. Restart your instance on Openshift, you should see your site!</li>
+</ol>
+
+
+<div class="pilwrap" id="more%20information">
+  <h2>
+    <a href="#more%20information" name="more%20information" class="pilcrow">&#182;</a>
+    More Information
+  </h2>
+</div>
+
+
+<ul>
+<li>Visit us at <a href="http://www.linnovate.net/">Linnovate.net</a>.</li>
+<li>Visit our <a href="http://www.meanleanstartupmachine.com/">Ninja's Zone</a> for extended support.</li>
+</ul>
+
+
+<div class="pilwrap" id="credits">
+  <h2>
+    <a href="#credits" name="credits" class="pilcrow">&#182;</a>
+    Credits
+  </h2>
+</div>
+
+
+<ul>
+<li>To our awesome <a href="https://github.com/orgs/linnovate/teams/mean">core team</a> with help of our <a href="https://github.com/linnovate/mean/graphs/contributors">contributors</a> which have made this project a success.</li>
+<li><a href="https://github.com/vkarpov15">Valeri Karpov</a> for coining the term <em>mean</em> and triggering the mean stack movement.</li>
+<li><a href="https://github.com/amoshaviv">Amos Haviv</a>  for the creation of the initial version of Mean.io while working for us @linnovate.</li>
+<li><a href="https://github.com/madhums/">Madhusudhan Srinivasa</a> which inspired us with his great work.</li>
+</ul>
+
+
+<div class="pilwrap" id="license">
+  <h2>
+    <a href="#license" name="license" class="pilcrow">&#182;</a>
+    License
+  </h2>
+</div>
+
+
+<p>We believe that mean should be free and easy to integrate within your existing projects so we chose <a href="http://opensource.org/licenses/MIT">The MIT License</a></p></div>
+  </div>
+</body>
+</html>

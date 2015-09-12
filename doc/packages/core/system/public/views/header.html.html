@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>header.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/system/public/views/header.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>header.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-inverse navbar-fixed-top&quot;</span> <span class="na">data-role=</span><span class="s">&quot;navigation&quot;</span> <span class="na">ng-controller=</span><span class="s">&quot;HeaderController as hdrctr&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page-header&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navbar-header&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;logo pull-left&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;navbar-toggle&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;isCollapsed = !isCollapsed&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;sr-only&quot;</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon-bar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon-bar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon-bar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+                    <span class="nt">&lt;/button&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">ui-sref=</span><span class="s">&quot;home&quot;</span> <span class="na">mean-token=</span><span class="s">&quot;&#39;site-title&#39;&quot;</span><span class="nt">&gt;</span>Dota2News<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;isCollapsed &amp;&amp; &#39;in&#39;&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;left pull-left&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;navbar-nav nav&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">ui-route=</span><span class="s">&quot;/{{item.link}}&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;{active: $uiRoute}&quot;</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in hdrctr.menus.main&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;a</span> <span class="na">mean-token=</span><span class="s">&quot;item.link&quot;</span> <span class="na">ui-sref=</span><span class="s">&#39;{{item.link}}&#39;</span><span class="nt">&gt;</span>{{item.title}}<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;/ul&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;right pull-left&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;navbar-nav nav&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&#39;events&#39;</span><span class="nt">&gt;</span>Events<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider-vertical&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&#39;rankings&#39;</span><span class="nt">&gt;</span>Rankings<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider-vertical&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&#39;guides&#39;</span><span class="nt">&gt;</span>Guides<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider-vertical&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&#39;forum&#39;</span><span class="nt">&gt;</span>Forum<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                    <span class="nt">&lt;/ul&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;right pull-right&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;navbar-nav nav auth-link&quot;</span> <span class="na">ng-show=</span><span class="s">&quot;!hdrctr.hdrvars.authenticated&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&#39;auth.register&#39;</span><span class="nt">&gt;</span>Join<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider-vertical&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&#39;auth.login&#39;</span><span class="nt">&gt;</span>Log In<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                    <span class="nt">&lt;/ul&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;text-edit&quot;</span> <span class="na">ng-show=</span><span class="s">&quot;hdrctr.hdrvars.authenticated&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span> <span class="na">mean-token-editable</span><span class="nt">&gt;&lt;/div&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span> <span class="na">mean-translate</span><span class="nt">&gt;&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;navbar-nav nav&quot;</span> <span class="na">ng-show=</span><span class="s">&quot;hdrctr.hdrvars.authenticated&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">dropdown</span> <span class="na">on-toggle=</span><span class="s">&quot;toggled(open)&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;dropdown-toggle&quot;</span> <span class="na">dropdown-toggle</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;span&gt;</span>{{hdrctr.hdrvars.user.name}}<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;b</span> <span class="na">class=</span><span class="s">&quot;caret&quot;</span><span class="nt">&gt;&lt;/b&gt;</span>
+                            <span class="nt">&lt;/a&gt;</span>
+                            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;dropdown-menu&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;hdrctr.logout()&quot;</span><span class="nt">&gt;</span>Log Out<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;/ul&gt;</span>
+                    
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

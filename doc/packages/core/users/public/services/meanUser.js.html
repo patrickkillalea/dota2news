@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>meanUser.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/public/services/meanUser.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>meanUser.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.users&#39;</span><span class="p">).</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;MeanUser&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span> <span class="s1">&#39;$location&#39;</span><span class="p">,</span> <span class="s1">&#39;$stateParams&#39;</span><span class="p">,</span> <span class="s1">&#39;$cookies&#39;</span><span class="p">,</span> <span class="s1">&#39;$q&#39;</span><span class="p">,</span> <span class="s1">&#39;$timeout&#39;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">,</span> <span class="nx">$location</span><span class="p">,</span> <span class="nx">$stateParams</span><span class="p">,</span> <span class="nx">$cookies</span><span class="p">,</span> <span class="nx">$q</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">self</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">escape</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;/g</span><span class="p">,</span> <span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span> <span class="s1">&#39;&amp;quot;&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;/g</span><span class="p">,</span> <span class="s1">&#39;&amp;#39;&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;/g</span><span class="p">,</span> <span class="s1">&#39;&amp;lt;&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&gt;/g</span><span class="p">,</span> <span class="s1">&#39;&amp;gt;&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">b64_to_utf8</span><span class="p">(</span> <span class="nx">str</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">escape</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">atob</span><span class="p">(</span> <span class="nx">str</span> <span class="p">)));</span>
+    <span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>function url_base64_decode(str) {
+var output = str.replace('-', '+').replace('_', '/');
+switch (output.length % 4) {
+case 0:
+break;
+case 2:
+output += '==';
+break;
+case 3:
+output += '=';
+break;
+default:
+throw 'Illegal base64url string!';
+}
+return window.atob(output); //polifyll <a href='https://github.com/davidchambers/Base64.js'>https://github.com/davidchambers/Base64.js</a>
+}  </p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+    <span class="kd">function</span> <span class="nx">MeanUserKlass</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">loggedin</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">isAdmin</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">loginError</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">usernameError</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">registerError</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">resetpassworderror</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">validationError</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/users/me&#39;</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">response</span> <span class="o">&amp;&amp;</span> <span class="nx">$cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">$cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;redirect&#39;</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">self</span><span class="p">.</span><span class="nx">onIdentity</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">self</span><span class="p">)({</span>
+            <span class="nx">token</span><span class="o">:</span> <span class="nx">$cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">),</span> 
+            <span class="nx">redirect</span><span class="o">:</span> <span class="nx">$cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;redirect&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^&quot;|&quot;$/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+          <span class="p">});</span>
+          <span class="nx">$cookies</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">);</span>
+          <span class="nx">$cookies</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;redirect&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">self</span><span class="p">.</span><span class="nx">onIdentity</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">self</span><span class="p">)(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">onIdentity</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">encodedUser</span><span class="p">,</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">destination</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">angular</span><span class="p">.</span><span class="nx">isDefined</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">token</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;JWT&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">token</span><span class="p">);</span>
+        <span class="nx">encodedUser</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">b64_to_utf8</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">token</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]));</span>
+        <span class="nx">user</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">encodedUser</span><span class="p">);</span> 
+      <span class="p">}</span>
+      <span class="nx">destination</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">isDefined</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">)</span> <span class="o">?</span> <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span> <span class="o">:</span> <span class="nx">destination</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">user</span> <span class="o">||</span> <span class="nx">response</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">loggedin</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">loginError</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">registerError</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">isAdmin</span> <span class="o">=</span> <span class="o">!!</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">roles</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">destination</span><span class="p">)</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
+      <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;loggedin&#39;</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">onIdFail</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">loginError</span> <span class="o">=</span> <span class="s1">&#39;Authentication failed.&#39;</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">registerError</span> <span class="o">=</span> <span class="nx">response</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">validationError</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">msg</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">resetpassworderror</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">msg</span><span class="p">;</span>
+      <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;loginfailed&#39;</span><span class="p">);</span>
+      <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;registerfailed&#39;</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">MeanUser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MeanUserKlass</span><span class="p">();</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">login</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>this is an ugly hack due to mean-admin needs</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="kd">var</span> <span class="nx">destination</span> <span class="o">=</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="o">?</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">absUrl</span><span class="p">()</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/login&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+          <span class="nx">password</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+          <span class="nx">redirect</span><span class="o">:</span> <span class="nx">destination</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdentity</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdFail</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">register</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/register&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+        <span class="nx">confirmPassword</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">confirmPassword</span><span class="p">,</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span>
+      <span class="p">})</span>
+        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdentity</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdFail</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">resetpassword</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/reset/&#39;</span> <span class="o">+</span> <span class="nx">$stateParams</span><span class="p">.</span><span class="nx">tokenId</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">password</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+          <span class="nx">confirmPassword</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">confirmPassword</span>
+        <span class="p">})</span>
+          <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdentity</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
+          <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdFail</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+      <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forgotpassword</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/forgot-password&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">text</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span>
+        <span class="p">})</span>
+          <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;forgotmailsent&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+          <span class="p">})</span>
+          <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">onIdFail</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+      <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">logout</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">loggedin</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">isAdmin</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/logout&#39;</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;JWT&#39;</span><span class="p">);</span>
+        <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;logout&#39;</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">checkLoggedin</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+     <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Make an AJAX call to check if the user is logged in</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/loggedin&#39;</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Authenticated</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">!==</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="nx">$timeout</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Not Authenticated</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">$cookies</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;redirect&#39;</span><span class="p">,</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">());</span>
+          <span class="nx">$timeout</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">reject</span><span class="p">);</span>
+          <span class="nx">$location</span><span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="s1">&#39;/auth/login&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">checkLoggedOut</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>Check if the user is not connected
+Initialize a new promise</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>Make an AJAX call to check if the user is logged in</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/loggedin&#39;</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>Authenticated</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">!==</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">$timeout</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">reject</span><span class="p">);</span>
+          <span class="nx">$location</span><span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>Not Authenticated</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">else</span> <span class="nx">$timeout</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">MeanUserKlass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">checkAdmin</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+     <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>Make an AJAX call to check if the user is logged in</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/loggedin&#39;</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>Authenticated</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">!==</span> <span class="s1">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">roles</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="nx">$timeout</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>Not Authenticated or not Admin</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">$timeout</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">reject</span><span class="p">);</span>
+          <span class="nx">$location</span><span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="nx">MeanUser</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

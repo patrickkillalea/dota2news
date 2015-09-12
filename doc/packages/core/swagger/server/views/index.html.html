@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/swagger/server/views/index.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Swagger UI<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&#39;//fonts.googleapis.com/css?family=Droid+Sans:400,700&#39;</span> <span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">type=</span><span class="s">&#39;text/css&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&#39;/swagger/assets/css/reset.css&#39;</span> <span class="na">media=</span><span class="s">&#39;screen&#39;</span> <span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">type=</span><span class="s">&#39;text/css&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&#39;/swagger/assets/css/screen.css&#39;</span> <span class="na">media=</span><span class="s">&#39;screen&#39;</span> <span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">type=</span><span class="s">&#39;text/css&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&#39;/swagger/assets/css/reset.css&#39;</span> <span class="na">media=</span><span class="s">&#39;print&#39;</span> <span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">type=</span><span class="s">&#39;text/css&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&#39;/swagger/assets/css/screen.css&#39;</span> <span class="na">media=</span><span class="s">&#39;print&#39;</span> <span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">type=</span><span class="s">&#39;text/css&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/swagger/assets/js/lib/shred.bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/jquery-1.8.0.min.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/jquery.slideto.min.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/jquery.wiggle.min.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/jquery.ba-bbq.min.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/handlebars-1.0.0.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/underscore-min.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/backbone-min.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/swagger.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/swagger-ui.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/highlight.7.3.pack.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="c">&lt;!-- enabling this will enable oauth2 implicit scope support --&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;/swagger/assets/js/lib/swagger-oauth.js&#39;</span> <span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">swaggerUi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SwaggerUi</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{endpoint}}&#39;</span><span class="p">,</span>
+      <span class="nx">dom_id</span><span class="o">:</span> <span class="s2">&quot;swagger-ui-container&quot;</span><span class="p">,</span>
+      <span class="nx">supportedSubmitMethods</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">],</span>
+      <span class="nx">onComplete</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">swaggerApi</span><span class="p">,</span> <span class="nx">swaggerUi</span><span class="p">){</span>
+        <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Loaded SwaggerUI&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">initOAuth</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="cm">/*</span>
+<span class="cm">          initOAuth({</span>
+<span class="cm">            clientId: &quot;your-client-id&quot;,</span>
+<span class="cm">            realm: &quot;your-realms&quot;,</span>
+<span class="cm">            appName: &quot;your-app-name&quot;</span>
+<span class="cm">          });</span>
+<span class="cm">          */</span>
+        <span class="p">}</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;pre code&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">hljs</span><span class="p">.</span><span class="nx">highlightBlock</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+        <span class="p">});</span>
+      <span class="p">},</span>
+      <span class="nx">onFailure</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Unable to Load SwaggerUI&quot;</span><span class="p">);</span>
+      <span class="p">},</span>
+      <span class="nx">docExpansion</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+      <span class="nx">sorter</span> <span class="o">:</span> <span class="s2">&quot;alpha&quot;</span>
+    <span class="p">});</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">authorizations</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ApiKeyAuthorization</span><span class="p">(</span><span class="s2">&quot;authorization&quot;</span><span class="p">,</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;JWT&#39;</span><span class="p">),</span> <span class="s2">&quot;header&quot;</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">swaggerUi</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">&quot;swagger-section&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;header&#39;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;swagger-ui-wrap&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;logo&quot;</span> <span class="na">href=</span><span class="s">&quot;http://swagger.wordnik.com&quot;</span><span class="nt">&gt;</span>swagger<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&#39;api_selector&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;input icon-btn&#39;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">id=</span><span class="s">&quot;show-pet-store-icon&quot;</span> <span class="na">src=</span><span class="s">&quot;/swagger/assets/img/pet_store_api.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Show Swagger Petstore Example Apis&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;input icon-btn&#39;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">id=</span><span class="s">&quot;show-wordnik-dev-icon&quot;</span> <span class="na">src=</span><span class="s">&quot;/swagger/assets/img/wordnik_api.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Show Wordnik Developer Apis&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;input&#39;</span><span class="nt">&gt;&lt;input</span> <span class="na">placeholder=</span><span class="s">&quot;http://example.com/api&quot;</span> <span class="na">id=</span><span class="s">&quot;input_baseUrl&quot;</span> <span class="na">name=</span><span class="s">&quot;baseUrl&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;input&#39;</span><span class="nt">&gt;&lt;a</span> <span class="na">id=</span><span class="s">&quot;explore&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Explore<span class="nt">&lt;/a&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;message-bar&quot;</span> <span class="na">class=</span><span class="s">&quot;swagger-ui-wrap&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;swagger-ui-container&quot;</span> <span class="na">class=</span><span class="s">&quot;swagger-ui-wrap&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

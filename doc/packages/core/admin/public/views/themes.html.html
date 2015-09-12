@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>themes.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/public/views/themes.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>themes.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;section</span> <span class="na">data-ng-controller=</span><span class="s">&quot;ThemesController&quot;</span> <span class="na">data-ng-show=</span><span class="s">&quot;themes&quot;</span> <span class="na">id=</span><span class="s">&quot;themes&quot;</span> <span class="na">data-ng-init=</span><span class="s">&quot;init()&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;progress progress-striped active&quot;</span> <span class="na">style=</span><span class="s">&quot;display:none&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;progress-bar&quot;</span> <span class="na">role=</span><span class="s">&quot;progressbar&quot;</span> <span class="na">aria-valuenow=</span><span class="s">&quot;95&quot;</span> <span class="na">aria-valuemin=</span><span class="s">&quot;0&quot;</span> <span class="na">aria-valuemax=</span><span class="s">&quot;100&quot;</span> <span class="na">style=</span><span class="s">&quot;width: 95%&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;sr-only&quot;</span><span class="nt">&gt;</span>Almost there. Updating theme<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;img</span> <span class="na">data-ng-repeat=</span><span class="s">&quot;theme in themes&quot;</span> <span class="na">ng-src=</span><span class="s">&quot;{{theme.thumbnail}}&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;changeTheme(theme)&quot;</span> <span class="na">style=</span><span class="s">&quot;width:300px; height:200px; margin-right:25px; margin-bottom: 25px; cursor:pointer&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;button</span> <span class="na">style=</span><span class="s">&quot;width:300px; height:200px; margin-right:25px; margin-bottom: 25px;&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;defaultTheme()&quot;</span><span class="nt">&gt;</span>Default Theme<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

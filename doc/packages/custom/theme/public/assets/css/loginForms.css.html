@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>loginForms.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../../doc-style.css" />
+  <script src="../../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../../", thisFile = "packages/custom/theme/public/assets/css/loginForms.css", defaultSidebar = true;
+  </script>
+  <script src="../../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>loginForms.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">html</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span><span class="nc">.login</span><span class="o">,</span> <span class="nt">body</span><span class="nc">.register</span><span class="o">,</span>  <span class="nt">body</span><span class="nc">.forgot-password</span> <span class="p">{</span>
+<span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/bg.png&quot;)</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;futura_bkbook&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.svg#futura_bkbook&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;open_sans_hebrewregular&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.svg#open_sans_hebrewregular&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;open_sans_hebrewlight&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-light.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-light.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-light.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-light.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-light.svg#open_sans_hebrewlight&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;proxima_nova_rgregular&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/mark_simonson_-_proxima_nova_regular.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/mark_simonson_-_proxima_nova_regular.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/mark_simonson_-_proxima_nova_regular.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/mark_simonson_-_proxima_nova_regular.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/mark_simonson_-_proxima_nova_regular.svg#proxima_nova_rgregular&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;proxima_novalight&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/proximanova-light.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/proximanova-light.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/proximanova-light.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/proximanova-light.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/proximanova-light.svg#proxima_novalight&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.form</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#ffffff</span><span class="p">;</span>
+    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">3px</span> <span class="m">1px</span> <span class="m">#003644</span><span class="p">;</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">35px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.main-form</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">748px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">435px</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">-374px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.main-form.register-form</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">622px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">440px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">34px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">27px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nt">h2</span><span class="o">,</span> <span class="nc">.forgot_password_form</span> <span class="nt">h2</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;futura_bkbook&quot;</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nt">p</span><span class="o">,</span> <span class="nc">.forgot_password_form</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;proxima_nova_rgregular&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.main-form</span> <span class="nc">.input-wrapper</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.main-form</span> <span class="nc">.input-wrapper</span> <span class="nt">input</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">401px</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#d3d3d3</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">18px</span> <span class="m">0</span> <span class="m">18px</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">outline</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;proxima_nova_rgregular&#39;</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">22px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.main-form</span> <span class="nc">.input-wrapper</span> <span class="nt">input</span><span class="nd">:invalid</span> <span class="p">{</span>
+    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.main-form</span> <span class="nc">.input-wrapper</span> <span class="nt">input</span><span class="nd">:focus</span> <span class="p">{</span>
+    <span class="k">border-color</span><span class="o">:</span> <span class="m">#66afe9</span><span class="p">;</span>
+    <span class="k">outline</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="k">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">1px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">075</span><span class="p">)</span><span class="o">,</span><span class="m">0</span> <span class="m">0</span> <span class="m">8px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">102</span><span class="o">,</span><span class="m">175</span><span class="o">,</span><span class="m">233</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">6</span><span class="p">);</span>
+    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="k">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">1px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">075</span><span class="p">)</span><span class="o">,</span><span class="m">0</span> <span class="m">0</span> <span class="m">8px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">102</span><span class="o">,</span><span class="m">175</span><span class="o">,</span><span class="m">233</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">6</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.pic.email</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/mail_login.png&quot;)</span> <span class="k">no-repeat</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">21px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
+    <span class="k">right</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.pic.password</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/eye_password.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">right</span><span class="o">:</span> <span class="m">22px</span><span class="p">;</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nc">.icon_hide_password</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/eye_password_disabled.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">right</span><span class="o">:</span> <span class="m">22px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nc">.hide_text_password</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">38px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">125px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">34px</span><span class="p">;</span>
+    <span class="k">bottom</span><span class="o">:</span> <span class="m">39px</span><span class="p">;</span>
+    <span class="k">right</span><span class="o">:</span> <span class="m">-40px</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#0588a0</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;proxima_nova_rgregular&quot;</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nc">.hide_text_password</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">border-top</span><span class="o">:</span> <span class="m">10px</span> <span class="k">solid</span> <span class="m">#0588a0</span><span class="p">;</span>
+    <span class="k">border-left</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="k">border-right</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">-4px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.pic.password</span><span class="nd">:hover</span> <span class="nc">.hide_text_password</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.icon_hide_password</span><span class="nd">:hover</span> <span class="nc">.hide_text_password</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error_message</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">29px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="k">bottom</span><span class="o">:</span> <span class="m">67px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="k">min-width</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error_message</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">border-top</span><span class="o">:</span> <span class="m">10px</span> <span class="k">solid</span> <span class="nb">blue</span><span class="p">;</span>
+    <span class="k">border-left</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="k">border-right</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">-4px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nc">.forgot_password</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">-5px</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nc">.forgot_password</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#68a80c</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;open_sans_hebrewregular&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__left</span> <span class="nc">.button_login</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.submit_button</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/button_login.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">107px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">47px</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">21px</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;open_sans_hebrewregular&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.submit_button</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/button_login_hover.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.submit_button</span><span class="nd">:focus</span> <span class="p">{</span>
+    <span class="k">outline</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.button_login</span> <span class="nt">p</span><span class="o">,</span>
+<span class="nc">.button_send</span> <span class="nt">p</span><span class="o">,</span>
+<span class="nc">.button_register</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;open_sans_hebrewregular&quot;</span><span class="p">;</span>
+    <span class="k">vertical-align</span><span class="o">:</span> <span class="k">top</span><span class="p">;</span>
+    <span class="k">padding-top</span><span class="o">:</span> <span class="m">11px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.button_send</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">65px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.button_register</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.button_login</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.button_send</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.button_register</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#68a80c</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
+    <span class="k">padding-top</span><span class="o">:</span> <span class="m">11px</span><span class="p">;</span>
+    <span class="k">vertical-align</span><span class="o">:</span> <span class="k">top</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;open_sans_hebrewregular&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__center</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/devide_line.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.register-form</span> <span class="nc">.login-form__center</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">38px</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/devide_line_long.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__center</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">155px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;proxima_novalight&#39;</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.register-form</span> <span class="nc">.login-form__center</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">227px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">270px</span><span class="p">;</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">26px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.login-form__right</span> <span class="nc">.social_wrap</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">235px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">270px</span><span class="p">;</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">36px</span><span class="p">;</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.register-form</span> <span class="nc">.login-form__right</span> <span class="nc">.social_wrap</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">483px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.bigger</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">345px</span><span class="p">;</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">35px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.bigger</span> <span class="nc">.social</span> <span class="p">{</span>
+    <span class="k">top</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="c">/* IE 9 */</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="c">/* Chrome, Safari, Opera */</span>
+    <span class="n">transform</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span><span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+    <span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">translate</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">-50</span><span class="o">%</span><span class="p">);</span> <span class="c">/* IE 9 */</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">translate</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">-50</span><span class="o">%</span><span class="p">);</span> <span class="c">/* Chrome, Safari, Opera */</span>
+    <span class="n">transform</span><span class="o">:</span> <span class="n">translate</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">-50</span><span class="o">%</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">230px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">60px</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#e1e1e0</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#f1f1f1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon</span> <span class="nc">.button</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">22px</span> <span class="m">0</span> <span class="m">22px</span> <span class="m">60px</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#959595</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon</span> <span class="nc">.button</span><span class="nd">:active</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#959595</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon</span> <span class="nc">.button</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;open_sans_hebrewlight&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon</span> <span class="nc">.button</span> <span class="nt">span</span><span class="nd">:visited</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#959595</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon_linkedin</span> <span class="nc">.button</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/social_in.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">47px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon_facebook</span> <span class="nc">.button</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/social_fb.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">41px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon_github</span> <span class="nc">.button</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/social_github.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon_twitter</span> <span class="nc">.button</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/social_tw.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">41px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.login-form__right</span> <span class="nc">.social_icon_google</span> <span class="nc">.button</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/theme/assets/img/social_g+.png&quot;)</span> <span class="k">no-repeat</span> <span class="m">50</span><span class="o">%</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">41px</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.woman_ninja_bottom</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">21</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">pointer</span><span class="o">-</span><span class="n">events</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.woman_ninja_left</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">75px</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">-410px</span><span class="p">;</span>
+    <span class="k">pointer</span><span class="o">-</span><span class="n">events</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.registration_form</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">440px</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.forgot_password_form</span> <span class="p">{</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">34px</span> <span class="m">27px</span><span class="p">;</span>
+    <span class="k">min-height</span><span class="o">:</span> <span class="m">280px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">465px</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">-232px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

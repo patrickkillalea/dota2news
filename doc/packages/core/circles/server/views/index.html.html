@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/circles/server/views/index.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+
+<span class="nc">.node</span> <span class="p">{</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.node</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="n">stroke</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">1.5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.node--leaf</span> <span class="p">{</span>
+  <span class="n">fill</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.label</span> <span class="p">{</span>
+  <span class="k">font</span><span class="o">:</span> <span class="m">11px</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">text</span><span class="o">-</span><span class="n">anchor</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
+  <span class="k">text-shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#fff</span><span class="o">,</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">#fff</span><span class="o">,</span> <span class="m">-1px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">#fff</span><span class="o">,</span> <span class="m">0</span> <span class="m">-1px</span> <span class="m">0</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.label</span><span class="o">,</span>
+<span class="nc">.node--root</span><span class="o">,</span>
+<span class="nc">.node--leaf</span> <span class="p">{</span>
+  <span class="k">pointer</span><span class="o">-</span><span class="n">events</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://d3js.org/d3.v3.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+<span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nx">diameter</span> <span class="o">=</span> <span class="mi">960</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">linear</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="p">.</span><span class="nx">range</span><span class="p">([</span><span class="s2">&quot;hsl(152,80%,80%)&quot;</span><span class="p">,</span> <span class="s2">&quot;hsl(228,30%,40%)&quot;</span><span class="p">])</span>
+    <span class="p">.</span><span class="nx">interpolate</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">interpolateHcl</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">pack</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">pack</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">padding</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">size</span><span class="p">([</span><span class="nx">diameter</span> <span class="o">-</span> <span class="nx">margin</span><span class="p">,</span> <span class="nx">diameter</span> <span class="o">-</span> <span class="nx">margin</span><span class="p">])</span>
+    <span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span> <span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">diameter</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">diameter</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="s2">&quot;translate(&quot;</span> <span class="o">+</span> <span class="nx">diameter</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">diameter</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">);</span>
+
+<span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">focus</span> <span class="o">=</span> <span class="nx">root</span><span class="p">,</span>
+      <span class="nx">nodes</span> <span class="o">=</span> <span class="nx">pack</span><span class="p">.</span><span class="nx">nodes</span><span class="p">(</span><span class="nx">root</span><span class="p">),</span>
+      <span class="nx">view</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;circle&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">nodes</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;circle&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">?</span> <span class="nx">d</span><span class="p">.</span><span class="nx">children</span> <span class="o">?</span> <span class="s2">&quot;node&quot;</span> <span class="o">:</span> <span class="s2">&quot;node node--leaf&quot;</span> <span class="o">:</span> <span class="s2">&quot;node node--root&quot;</span><span class="p">;</span> <span class="p">})</span>
+      <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">children</span> <span class="o">?</span> <span class="nx">color</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">depth</span><span class="p">)</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span> <span class="p">})</span>
+      <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nx">focus</span> <span class="o">!==</span> <span class="nx">d</span><span class="p">)</span> <span class="nx">zoom</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span> <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">nodes</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;fill-opacity&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">===</span> <span class="nx">root</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">})</span>
+      <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">===</span> <span class="nx">root</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">;</span> <span class="p">})</span>
+      <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span> <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;circle,text&quot;</span><span class="p">);</span>
+
+  <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="nx">color</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+      <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">zoom</span><span class="p">(</span><span class="nx">root</span><span class="p">);</span> <span class="p">});</span>
+
+  <span class="nx">zoomTo</span><span class="p">([</span><span class="nx">root</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">root</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">root</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">]);</span>
+
+  <span class="kd">function</span> <span class="nx">zoom</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">focus0</span> <span class="o">=</span> <span class="nx">focus</span><span class="p">;</span> <span class="nx">focus</span> <span class="o">=</span> <span class="nx">d</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">transition</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">transition</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">duration</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">altKey</span> <span class="o">?</span> <span class="mi">7500</span> <span class="o">:</span> <span class="mi">750</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">tween</span><span class="p">(</span><span class="s2">&quot;zoom&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">interpolateZoom</span><span class="p">(</span><span class="nx">view</span><span class="p">,</span> <span class="p">[</span><span class="nx">focus</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">focus</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">focus</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">]);</span>
+          <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">zoomTo</span><span class="p">(</span><span class="nx">i</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span> <span class="p">};</span>
+        <span class="p">});</span>
+
+    <span class="nx">transition</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">===</span> <span class="nx">focus</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">===</span> <span class="s2">&quot;inline&quot;</span><span class="p">;</span> <span class="p">})</span>
+        <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;fill-opacity&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">===</span> <span class="nx">focus</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">})</span>
+        <span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">===</span> <span class="nx">focus</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&quot;inline&quot;</span><span class="p">;</span> <span class="p">})</span>
+        <span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">parent</span> <span class="o">!==</span> <span class="nx">focus</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">;</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">zoomTo</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">diameter</span> <span class="o">/</span> <span class="nx">v</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">v</span><span class="p">;</span>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;translate(&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="nx">k</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="nx">k</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span> <span class="p">});</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">frameElement</span><span class="p">).</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">diameter</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">);</span>
+
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

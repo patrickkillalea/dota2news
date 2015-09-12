@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>head.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../../doc-style.css" />
+  <script src="../../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../../", thisFile = "packages/core/system/server/views/includes/head.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>head.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=edge,chrome=1&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width,initial-scale=1&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;fragment&quot;</span> <span class="na">content=</span><span class="s">&quot;!&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;title&gt;</span>{{appName}} - {{title}}<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content=</span><span class="s">&quot;node.js, express, mongoose, mongodb, angularjs, swig&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span> <span class="na">content=</span><span class="s">&quot;MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:app_id&quot;</span> <span class="na">content=</span><span class="s">&quot;APP_ID&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:title&quot;</span> <span class="na">content=</span><span class="s">&quot;{{appName}} - {{title}}&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:description&quot;</span> <span class="na">content=</span><span class="s">&quot;MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:type&quot;</span> <span class="na">content=</span><span class="s">&quot;website&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:url&quot;</span> <span class="na">content=</span><span class="s">&quot;APP_URL&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:image&quot;</span> <span class="na">content=</span><span class="s">&quot;APP_LOGO&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:site_name&quot;</span> <span class="na">content=</span><span class="s">&quot;MEAN - A Modern Stack&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:admins&quot;</span> <span class="na">content=</span><span class="s">&quot;APP_ADMIN&quot;</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- {{locals.config.cssFramework}} --&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/bower_components/bootstrap/dist/css/bootstrap.css&quot;</span><span class="nt">&gt;</span>
+
+  {% for file in aggregatedassets.header.css %}
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{file}}&quot;</span><span class="nt">&gt;</span>
+  {% endfor %}
+
+  {% for file in aggregatedassets.footer.css %}
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{file}}&quot;</span><span class="nt">&gt;</span>
+  {% endfor %}
+
+  {% for file in aggregatedassets.header.js %}
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;{{file}}&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  {% endfor %}
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+
+<div class="highlight"><pre><code><span class="p">[</span><span class="k">if</span> <span class="nx">lt</span> <span class="nx">IE</span> <span class="mi">9</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+<p><![endif]   </p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nt">&lt;/head&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

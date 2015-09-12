@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>README.md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "packages/core/swagger/README.md", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h1">
+        <a href="#swagger%20for%20mean.io">Swagger for Mean.io</a>
+      </div>
+      <div class="heading h2">
+        <a href="#getting%20the%20articles%20example%20working">Getting the Articles Example Working</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="docs markdown">
+<div class="pilwrap" id="swagger%20for%20mean.io">
+  <h1>
+    <a href="#swagger%20for%20mean.io" name="swagger%20for%20mean.io" class="pilcrow">&#182;</a>
+    Swagger for Mean.io
+  </h1>
+</div>
+
+
+<p>This package is really very basic but it does provide the Swagger endpoints to 
+document your API.  It also hosts the Swagger-UI package which is available at 
+/docs/ by default.</p>
+
+<p>To get things up and running here is what you need to know:</p>
+
+<ul>
+<li>The models are currently only defined in the <code>models.js</code> file. Each package should
+have its own /docs folder and in that you can sepcify the models.js</li>
+<li>Specify each service in the services.js file within the /docs of the relevent package
+See examples below</li>
+</ul>
+
+
+<div class="pilwrap" id="getting%20the%20articles%20example%20working">
+  <h2>
+    <a href="#getting%20the%20articles%20example%20working" name="getting%20the%20articles%20example%20working" class="pilcrow">&#182;</a>
+    Getting the Articles Example Working
+  </h2>
+</div>
+
+
+<p>To use your package must depend on 'swagger'. 
+* <code>swagger.add(__dirname);</code> to enable swagger support
+Ensure <code>swagger.add</code> is AFTER <code>package.routes</code></p>
+
+<p>//Below is sample of models.js</p>
+
+
+<div class="highlight"><pre><code><span class="nx">exports</span><span class="p">.</span><span class="nx">models</span> <span class="o">=</span> <span class="p">{</span>
+
+  <span class="nx">User</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
+    <span class="nx">required</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">],</span>
+    <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Name of the user&#39;</span>
+      <span class="p">},</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Email used for authentication and notifications&#39;</span>
+      <span class="p">},</span>
+      <span class="nx">phone</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Phone number of the user&#39;</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">Article</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+    <span class="nx">required</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">],</span>
+    <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Unique identifier for the Article&#39;</span>
+      <span class="p">},</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Title of the article&#39;</span>
+      <span class="p">},</span>
+      <span class="nx">content</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;content of the article&#39;</span>
+      <span class="p">},</span>
+      <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;User that created the article&#39;</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+
+<p>//Below is sample of services.js</p>
+
+
+<div class="highlight"><pre><code><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">load</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">swagger</span><span class="p">,</span> <span class="nx">parms</span><span class="p">){</span>
+
+    <span class="kd">var</span> <span class="nx">searchParms</span> <span class="o">=</span> <span class="nx">parms</span><span class="p">.</span><span class="nx">searchableOptions</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;spec&#39;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Article operations&#39;</span><span class="p">,</span>
+            <span class="nx">path</span> <span class="o">:</span> <span class="s1">&#39;/articles&#39;</span><span class="p">,</span>
+            <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+            <span class="nx">summary</span> <span class="o">:</span> <span class="s1">&#39;Get all Articles&#39;</span><span class="p">,</span>
+            <span class="nx">notes</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="nx">type</span> <span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+            <span class="nx">nickname</span> <span class="o">:</span> <span class="s1">&#39;getArticles&#39;</span><span class="p">,</span>
+            <span class="nx">produces</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;application/json&#39;</span><span class="p">],</span>
+            <span class="nx">params</span><span class="o">:</span> <span class="nx">searchParms</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">create</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;spec&#39;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Device operations&#39;</span><span class="p">,</span>
+            <span class="nx">path</span> <span class="o">:</span> <span class="s1">&#39;/articles&#39;</span><span class="p">,</span>
+            <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+            <span class="nx">summary</span> <span class="o">:</span> <span class="s1">&#39;Create article&#39;</span><span class="p">,</span>
+            <span class="nx">notes</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="nx">type</span> <span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+            <span class="nx">nickname</span> <span class="o">:</span> <span class="s1">&#39;createArticle&#39;</span><span class="p">,</span>
+            <span class="nx">produces</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;application/json&#39;</span><span class="p">],</span>
+            <span class="nx">parameters</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span>
+                    <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Article to create.  User will be inferred by the authenticated user.&#39;</span><span class="p">,</span>
+                    <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+                    <span class="nx">paramType</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span>
+                    <span class="nx">allowMultiple</span><span class="o">:</span> <span class="kc">false</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="nx">swagger</span><span class="p">.</span><span class="nx">addGet</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">addPost</span><span class="p">(</span><span class="nx">create</span><span class="p">);</span>
+
+<span class="p">};</span>
+</code></pre></div>
+
+</div>
+  </div>
+</body>
+</html>

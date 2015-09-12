@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>users.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/server/routes/users.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>users.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;meanio&#39;</span><span class="p">).</span><span class="nx">loadConfig</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">);</span> <span class="c1">//https://npmjs.org/package/node-jsonwebtoken</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">database</span><span class="p">,</span> <span class="nx">passport</span><span class="p">)</span> <span class="p">{</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>User routes use users controller</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../controllers/users&#39;</span><span class="p">)(</span><span class="nx">MeanUser</span><span class="p">);</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/logout&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">signout</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/users/me&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">me</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Setting up the userId param</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;userId&#39;</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>AngularJS route to check for authentication</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/loggedin&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">())</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">findUser</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">user</span> <span class="o">?</span> <span class="nx">user</span> <span class="o">:</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+  <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Setting up the users api</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/register&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">create</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/forgot-password&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">forgotpassword</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/reset/:token&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">resetpassword</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Setting the local strategy route</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/login&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureFlash</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">}),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>      
+          <span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+          <span class="nx">payload</span><span class="p">.</span><span class="nx">redirect</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">redirect</span><span class="p">;</span>
+          <span class="kd">var</span> <span class="nx">escaped</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>      
+          <span class="nx">escaped</span> <span class="o">=</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">escaped</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>We are sending the payload inside the token</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+          <span class="kd">var</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">escaped</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">secret</span><span class="p">,</span> <span class="p">{</span> <span class="nx">expiresInMinutes</span><span class="o">:</span> <span class="mi">60</span><span class="o">*</span><span class="mi">5</span> <span class="p">});</span>
+          <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">publish</span><span class="p">({</span>
+            <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;logged_in&#39;</span><span class="p">,</span>
+            <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span>
+            <span class="p">}</span>
+          <span class="p">});</span>
+          <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
+            <span class="nx">token</span><span class="o">:</span> <span class="nx">token</span><span class="p">,</span>
+            <span class="nx">redirect</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">landingPage</span>
+          <span class="p">});</span>
+        <span class="p">});</span>
+  <span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>AngularJS route to get config of social buttons</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/get-config&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>To avoid displaying unneccesary social logins</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="kd">var</span> <span class="nx">strategies</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">configuredApps</span> <span class="o">=</span> <span class="p">{};</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">strategies</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+        <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">strategy</span> <span class="o">=</span> <span class="nx">strategies</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">strategy</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">strategy</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">configuredApps</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">configuredApps</span><span class="p">);</span>
+    <span class="p">});</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+  <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>Setting the facebook oauth routes</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/facebook&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;facebook&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">scope</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;user_about_me&#39;</span><span class="p">],</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span><span class="p">,</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">signin</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/facebook/callback&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;facebook&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span><span class="p">,</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">authCallback</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+  <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>Setting the github oauth routes</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/github&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;github&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">signin</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/github/callback&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;github&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">authCallback</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">twitter</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+  <span class="p">{</span>    
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>Setting the twitter oauth routes</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/twitter&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">signin</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/twitter/callback&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">authCallback</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+  <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>Setting the google oauth routes</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/google&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span><span class="p">,</span>
+          <span class="nx">scope</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s1">&#39;https://www.googleapis.com/auth/userinfo.profile&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;https://www.googleapis.com/auth/userinfo.email&#39;</span>
+          <span class="p">]</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">signin</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/google/callback&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">authCallback</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">linkedin</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+  <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+</div>
+<p>Setting the linkedin oauth routes</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/linkedin&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;linkedin&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span><span class="p">,</span>
+          <span class="nx">scope</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;r_emailaddress&#39;</span><span class="p">]</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">signin</span><span class="p">);</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/api/auth/linkedin/callback&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;linkedin&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/auth/login&#39;</span>
+        <span class="p">}),</span> <span class="nx">users</span><span class="p">.</span><span class="nx">authCallback</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

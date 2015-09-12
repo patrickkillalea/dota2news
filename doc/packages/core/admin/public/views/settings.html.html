@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>settings.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/public/views/settings.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>settings.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;section</span> <span class="na">data-ng-controller=</span><span class="s">&quot;SettingsController&quot;</span> <span class="na">data-ng-init=</span><span class="s">&quot;init()&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-warning&quot;</span> <span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>Use with caution, changes might affect the system and make you cry.<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;table table-striped table-bordered table-hover editable-table&quot;</span> <span class="na">data-ng-show=</span><span class="s">&quot;settings&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Value<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Default<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Actions<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">data-ng-repeat=</span><span class="s">&quot;(key, value) in settings track by $index&quot;</span> <span class="na">data-ng-class=</span><span class="s">&quot;{&#39;disabled&#39;: key==&#39;db&#39;}&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                {{key}}
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">data-ng-editable=</span><span class="s">&quot;update(settings)&quot;</span> <span class="na">class=</span><span class="s">&quot;editable-span&quot;</span> <span class="na">data-ng-editable-model=</span><span class="s">&quot;value.value&quot;</span> <span class="na">data-ng-new-line=</span><span class="s">&quot;value.new&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">data-ng-show=</span><span class="s">&quot;(value.value !== value.default &amp;&amp; value.default)&quot;</span> <span class="na">style=</span><span class="s">&quot;cursor: help;&quot;</span> <span class="na">tooltip-placement=</span><span class="s">&quot;top&quot;</span> <span class="na">tooltip=</span><span class="s">&quot;From DB!&quot;</span> <span class="na">class=</span><span class="s">&quot;label label-info pull-right&quot;</span><span class="nt">&gt;</span>Overridden<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                {{value.default}}
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-danger btn-xs&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;remove(key)&quot;</span> <span class="na">value=</span><span class="s">&quot;Remove&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">data-ng-if=</span><span class="s">&quot;value.default&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary btn-xs&quot;</span> <span class="na">value=</span><span class="s">&quot;Reset&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;setDefault(key)&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-ng-model=</span><span class="s">&quot;newItem.key&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-ng-model=</span><span class="s">&quot;newItem.value.value&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-success btn-xs&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;add(newItem)&quot;</span> <span class="na">value=</span><span class="s">&quot;Add&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-warning btn-lg&quot;</span> <span class="na">clip-copy=</span><span class="s">&quot;getTextToCopy()&quot;</span> <span class="na">clip-click=</span><span class="s">&quot;doSomething()&quot;</span><span class="nt">&gt;</span>Copy json<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>users.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/public/views/users.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>users.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;section</span> <span class="na">data-ng-controller=</span><span class="s">&quot;UsersController&quot;</span> <span class="na">class=</span><span class="s">&quot;users&quot;</span><span class="nt">&gt;</span>
+
+
+    <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;user-add-form&quot;</span> <span class="na">class=</span><span class="s">&quot;row-fluid form-horizontal col-sm-6 well&quot;</span> <span class="na">name=</span><span class="s">&quot;addUserForm&quot;</span> <span class="na">ng-show=</span><span class="s">&quot;showForm&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">ng-repeat=</span><span class="s">&quot;error in userError&quot;</span> <span class="na">class=</span><span class="s">&quot;col-sm-12&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-danger animated fadeIn&quot;</span><span class="nt">&gt;</span>{{error.msg}}<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">data-ng-repeat=</span><span class="s">&quot;field in userSchema&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;user-add-{{field[&#39;title&#39;]}}&quot;</span> <span class="na">class=</span><span class="s">&quot;col-sm-2 control-label&quot;</span><span class="nt">&gt;</span>{{field[&#39;title&#39;]}}<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-10&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">data-ng-if=</span><span class="s">&quot;(field[&#39;type&#39;] == &#39;text&#39; || field[&#39;type&#39;] == &#39;email&#39; || field[&#39;type&#39;] == &#39;password&#39;)&quot;</span> <span class="na">type=</span><span class="s">&quot;{{field[&#39;type&#39;]}}&quot;</span> <span class="na">class=</span><span class="s">&quot;span2 form-control&quot;</span> <span class="na">data-ng-model=</span><span class="s">&quot;user[field[&#39;schemaKey&#39;]]&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;{{field[&#39;title&#39;]}}&quot;</span> <span class="na">id=</span><span class="s">&quot;user-add-{{field[&#39;title&#39;]}}&quot;</span> <span class="na">required</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;select</span> <span class="na">data-ng-if=</span><span class="s">&quot;field[&#39;type&#39;] == &#39;select&#39;&quot;</span> <span class="na">data-ng-model=</span><span class="s">&quot;user[field[&#39;schemaKey&#39;]]&quot;</span> <span class="na">ng-multiple=</span><span class="s">&quot;true&quot;</span> <span class="na">multiple</span> <span class="na">ng-options=</span><span class="s">&quot;option for option in field[&#39;options&#39;]&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">required</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>-- Choose Role --<span class="nt">&lt;/option&gt;</span>
+                    <span class="nt">&lt;/select&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-offset-2 col-sm-4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span>  <span class="na">class=</span><span class="s">&quot;btn&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;add(addUserForm.$valid)&quot;</span><span class="nt">&gt;</span>Add<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;btn&quot;</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Cancel&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;showForm = false; user= {}&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;loader&quot;</span> <span class="na">data-ng-init=</span><span class="s">&quot;init()&quot;</span> <span class="na">data-ng-hide=</span><span class="s">&quot;users.length&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+
+<div class="highlight"><pre><code> <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;col-sm-6 well&quot;</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">show</span><span class="o">=</span><span class="s2">&quot;!showForm&quot;</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;showForm=true;&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;glyphicon glyphicon-plus&quot;</span> <span class="nx">aria</span><span class="o">-</span><span class="nx">hidden</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;&lt;</span><span class="err">/span&gt;</span>
+<span class="nx">Add</span> <span class="nx">user</span>
+</code></pre></div>
+
+
+
+<p></div>    </p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;actions-bar&quot;</span> <span class="na">data-ng-show=</span><span class="s">&quot;users.length&quot;</span><span class="nt">&gt;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+
+<div class="highlight"><pre><code> <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;btn&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">ng</span><span class="o">-</span><span class="nx">hide</span><span class="o">=</span><span class="s2">&quot;edit&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;edit=!edit&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;Edit&quot;</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+
+<p><input type="button" class="btn btn-primary" data-ng-show="edit" data-ng-click="edit=!edit" value="Done">    </p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn&quot;</span> <span class="na">data-ng-hide=</span><span class="s">&quot;edit&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;edit=!edit&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-edit&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/span&gt;</span><span class="ni">&amp;nbsp;</span>Edit<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span> <span class="na">data-ng-show=</span><span class="s">&quot;edit&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;edit=!edit&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/span&gt;</span><span class="ni">&amp;nbsp;</span> Done<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn&quot;</span> <span class="na">ng-show=</span><span class="s">&quot;!showForm&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;showForm=true;&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-plus&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/span&gt;</span><span class="ni">&amp;nbsp;</span> Add user<span class="nt">&lt;/button&gt;</span>
+        <span class="c">&lt;!-- &lt;input type=&quot;button&quot; class=&quot;btn&quot; ng-show=&quot;!showForm&quot; ng-click=&quot;showForm=true;&quot;/&gt; --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;table table-striped table-bordered table-hover editable-table&quot;</span> <span class="na">data-ng-show=</span><span class="s">&quot;users.length&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-ng-show=</span><span class="s">&quot;edit&quot;</span><span class="nt">&gt;</span>
+                Edit
+            <span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-ng-repeat=</span><span class="s">&quot;field in userSchema&quot;</span> <span class="na">data-ng-if=</span><span class="s">&quot;field.inTable&quot;</span><span class="nt">&gt;</span>{{field.title}}<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">data-ng-repeat=</span><span class="s">&quot;user in users&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">data-ng-show=</span><span class="s">&quot;edit&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btn-danger glyphicon glyphicon-trash&quot;</span> <span class="na">data-ng-click=</span><span class="s">&quot;remove(user)&quot;</span> <span class="na">value=</span><span class="s">&quot;del&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon-trash icon-white&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">&quot;table-editable-cell&quot;</span> <span class="na">data-ng-repeat=</span><span class="s">&quot;field in userSchema&quot;</span> <span class="na">data-ng-if=</span><span class="s">&quot;field.inTable&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">data-ng-if=</span><span class="s">&quot;(field[&#39;type&#39;] == &#39;text&#39; || field[&#39;type&#39;] == &#39;email&#39;)&quot;</span> <span class="na">class=</span><span class="s">&quot;editable-span&quot;</span> <span class="na">data-ng-editable=</span><span class="s">&quot;update(user)&quot;</span> <span class="na">data-ng-editable-model=</span><span class="s">&quot;user[field[&#39;schemaKey&#39;]]&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">data-ng-click=</span><span class="s">&quot;beforeSelect(field[&#39;schemaKey&#39;], user)&quot;</span> <span class="na">data-ng-if=</span><span class="s">&quot;(field[&#39;type&#39;] == &#39;select&#39;)&quot;</span> <span class="na">class=</span><span class="s">&quot;editable-span&quot;</span> <span class="na">data-ng-editable-select=</span><span class="s">&quot;update(user, field[&#39;schemaKey&#39;])&quot;</span> <span class="na">data-ng-editable-select-model=</span><span class="s">&quot;user[field[&#39;schemaKey&#39;]]&quot;</span> <span class="na">data-ng-editable-select-options=</span><span class="s">&quot;field[&#39;options&#39;]&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

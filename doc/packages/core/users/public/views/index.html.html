@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/public/views/index.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form main-form&quot;</span> <span class="na">ng-controller=</span><span class="s">&quot;AuthCtrl&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;($state.is(&#39;auth.register&#39;)) ? &#39;register-form&#39; : &#39;&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;login-form__left&quot;</span> <span class="na">ui-view</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;login-form__center&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>or<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row login-form__right &quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social_wrap&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;{bigger:socialButtonsCounter &gt; 4 &amp;&amp; !global.registerForm}&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;social&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;(key, val) in socialButtons&quot;</span> <span class="na">class=</span><span class="s">&quot;social_icon social_icon_{{key}}&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">target=</span><span class="s">&quot;_self&quot;</span> <span class="na">ng-href=</span><span class="s">&quot;/api/auth/{{key}}&quot;</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;text-capitalize&quot;</span><span class="nt">&gt;</span>Log In With {{key}}<span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/li&gt;</span>
+
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

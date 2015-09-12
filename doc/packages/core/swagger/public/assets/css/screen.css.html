@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>screen.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../../doc-style.css" />
+  <script src="../../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../../", thisFile = "packages/core/swagger/public/assets/css/screen.css", defaultSidebar = true;
+  </script>
+  <script src="../../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>screen.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="c">/* Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt; */</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="m">#F0F0F0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nt">code</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.subst</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tag</span> <span class="nc">.title</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.lisp</span> <span class="nc">.title</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.clojure</span> <span class="nc">.built_in</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.nginx</span> <span class="nc">.title</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.string</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.title</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.constant</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.parent</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tag</span> <span class="nc">.value</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.rules</span> <span class="nc">.value</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.rules</span> <span class="nc">.value</span> <span class="nc">.number</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.preprocessor</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.ruby</span> <span class="nc">.symbol</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.ruby</span> <span class="nc">.symbol</span> <span class="nc">.string</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.aggregate</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.template_tag</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.django</span> <span class="nc">.variable</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.smalltalk</span> <span class="nc">.class</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.addition</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.flow</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.stream</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.bash</span> <span class="nc">.variable</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.apache</span> <span class="nc">.tag</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.apache</span> <span class="nc">.cbracket</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tex</span> <span class="nc">.command</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tex</span> <span class="nc">.special</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.erlang_repl</span> <span class="nc">.function_or_atom</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.header</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#800</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.comment</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.annotation</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.template_comment</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.diff</span> <span class="nc">.header</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.chunk</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.blockquote</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#888</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.number</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.date</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.regexp</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.literal</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.smalltalk</span> <span class="nc">.symbol</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.smalltalk</span> <span class="nc">.char</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.go</span> <span class="nc">.constant</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.change</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.bullet</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.link_url</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#080</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.label</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.javadoc</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.ruby</span> <span class="nc">.string</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.decorator</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.filter</span> <span class="nc">.argument</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.localvars</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.array</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.attr_selector</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.important</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.pseudo</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.pi</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.doctype</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.deletion</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.envvar</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.shebang</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.apache</span> <span class="nc">.sqbracket</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.nginx</span> <span class="nc">.built_in</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tex</span> <span class="nc">.formula</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.erlang_repl</span> <span class="nc">.reserved</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.prompt</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.link_label</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.vhdl</span> <span class="nc">.attribute</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.clojure</span> <span class="nc">.attribute</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.coffeescript</span> <span class="nc">.property</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#8888ff</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.keyword</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.id</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.phpdoc</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.title</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.built_in</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.aggregate</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.css</span> <span class="nc">.tag</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.javadoctag</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.phpdoc</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.yardoctag</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.smalltalk</span> <span class="nc">.class</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.winutils</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.bash</span> <span class="nc">.variable</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.apache</span> <span class="nc">.tag</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.go</span> <span class="nc">.typename</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tex</span> <span class="nc">.command</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.strong</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.request</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.status</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.markdown</span> <span class="nc">.emphasis</span> <span class="p">{</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.nginx</span> <span class="nc">.built_in</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.coffeescript</span> <span class="nc">.javascript</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.javascript</span> <span class="nc">.xml</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.tex</span> <span class="nc">.formula</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.xml</span> <span class="nc">.javascript</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.xml</span> <span class="nc">.vbscript</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.xml</span> <span class="nc">.css</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nt">pre</span> <span class="nc">.xml</span> <span class="nc">.cdata</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="p">{</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">max-width</span><span class="o">:</span> <span class="m">960px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">margin-right</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">b</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">strong</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">q</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">blockquote</span> <span class="p">{</span>
+  <span class="k">quotes</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.4em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#333333</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">q</span><span class="nd">:before</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">q</span><span class="nd">:after</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">blockquote</span><span class="nd">:before</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">blockquote</span><span class="nd">:after</span> <span class="p">{</span>
+  <span class="k">content</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">h1</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">h2</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">h3</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">h4</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">h5</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">h6</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">60</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">table</span> <span class="p">{</span>
+  <span class="k">border-collapse</span><span class="o">:</span> <span class="k">collapse</span><span class="p">;</span>
+  <span class="k">border-spacing</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">table</span> <span class="nt">thead</span> <span class="nt">tr</span> <span class="nt">th</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#999999</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">table</span> <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span> <span class="p">{</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">table</span> <span class="nt">tbody</span> <span class="nt">tr</span><span class="nc">.offset</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#f0f0f0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">table</span> <span class="nt">tbody</span> <span class="nt">tr</span> <span class="nt">td</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#cccccc</span><span class="p">;</span>
+  <span class="k">vertical-align</span><span class="o">:</span> <span class="k">top</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.3em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ol</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0px</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">18px</span><span class="p">;</span>
+  <span class="k">list-style-type</span><span class="o">:</span> <span class="k">decimal</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ol</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">0px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#333333</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ol</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h1</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h3</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h4</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h5</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h6</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h1</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h3</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h4</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h5</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h6</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h1</span> <span class="nt">span</span><span class="nc">.divider</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="nt">span</span><span class="nc">.divider</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.divider</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h4</span> <span class="nt">span</span><span class="nc">.divider</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h5</span> <span class="nt">span</span><span class="nc">.divider</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h6</span> <span class="nt">span</span><span class="nc">.divider</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#aaaaaa</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#547f00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">a</span> <span class="nt">img</span> <span class="p">{</span>
+  <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">article</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">aside</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">details</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">figcaption</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">figure</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">footer</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">header</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">hgroup</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">menu</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">nav</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">section</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">summary</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Anonymous Pro&quot;</span><span class="o">,</span> <span class="s2">&quot;Menlo&quot;</span><span class="o">,</span> <span class="s2">&quot;Consolas&quot;</span><span class="o">,</span> <span class="s2">&quot;Bitstream Vera Sans Mono&quot;</span><span class="o">,</span> <span class="s2">&quot;Courier New&quot;</span><span class="o">,</span> <span class="k">monospace</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#fcf6db</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#e5e0c6</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.6em</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.content</span> <span class="o">&gt;</span> <span class="nc">.content-type</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="o">&gt;</span> <span class="nt">label</span> <span class="p">{</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0F6AB4</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span> <span class="m">0</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.content</span> <span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.icon-btn</span> <span class="p">{</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.info_title</span> <span class="p">{</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">p</span><span class="nc">.big</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">div</span><span class="nc">.big</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.fullwidth</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.string</span> <span class="nt">input</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.fullwidth</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.url</span> <span class="nt">input</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.fullwidth</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.text</span> <span class="nt">textarea</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.fullwidth</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.numeric</span> <span class="nt">input</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">500px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.info_license</span> <span class="p">{</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.info_tos</span> <span class="p">{</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.message-fail</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#cc0000</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.info_contact</span> <span class="p">{</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.info_description</span> <span class="p">{</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">ol</span> <span class="nt">li</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">3px</span> <span class="m">0px</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.4em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#333333</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.string</span> <span class="nt">input</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.url</span> <span class="nt">input</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.numeric</span> <span class="nt">input</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.string</span> <span class="nt">input</span><span class="nc">.title</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.url</span> <span class="nt">input</span><span class="nc">.title</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.numeric</span> <span class="nt">input</span><span class="nc">.title</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.3em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">table</span><span class="nc">.fullwidth</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.signature-nav</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#AAA</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.signature-nav</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.signature-nav</span> <span class="nc">.selected</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.propType</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#5555aa</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nt">pre</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#ffffdd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">.85em</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.2em</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">max-height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nt">ul</span><span class="nc">.signature-nav</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nt">ul</span><span class="nc">.signature-nav</span> <span class="nt">li</span><span class="nd">:last-child</span> <span class="p">{</span>
+  <span class="k">padding-right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nt">ul</span><span class="nc">.signature-nav</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">5px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span> <span class="m">5px</span> <span class="m">2px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#ddd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.propOpt</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#555</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.snippet</span> <span class="nt">small</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.75em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.propOptKey</span> <span class="p">{</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.description</span> <span class="nc">.strong</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">.9em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.description</span> <span class="nt">div</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.description</span> <span class="nc">.stronger</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.propName</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.model-signature</span> <span class="nc">.signature-container</span> <span class="p">{</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.body-textarea</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#aaa</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">p</span> <span class="nt">code</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">li</span> <span class="nt">code</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Anonymous Pro&quot;</span><span class="o">,</span> <span class="s2">&quot;Menlo&quot;</span><span class="o">,</span> <span class="s2">&quot;Consolas&quot;</span><span class="o">,</span> <span class="s2">&quot;Bitstream Vera Sans Mono&quot;</span><span class="o">,</span> <span class="s2">&quot;Courier New&quot;</span><span class="o">,</span> <span class="k">monospace</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#f0f0f0</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">1px</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.required</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">input</span><span class="nc">.parameter</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#aaa</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h1</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.3em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.heading_with_menu</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.3em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="nt">span</span><span class="nc">.sub</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.7em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#999999</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h2</span> <span class="nt">span</span><span class="nc">.sub</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#777777</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">span</span><span class="nc">.weak</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.message-success</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#89BF04</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">caption</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">th</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">td</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+  <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.code</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Anonymous Pro&quot;</span><span class="o">,</span> <span class="s2">&quot;Menlo&quot;</span><span class="o">,</span> <span class="s2">&quot;Consolas&quot;</span><span class="o">,</span> <span class="s2">&quot;Bitstream Vera Sans Mono&quot;</span><span class="o">,</span> <span class="s2">&quot;Courier New&quot;</span><span class="o">,</span> <span class="k">monospace</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.text</span> <span class="nt">textarea</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">250px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.select</span> <span class="nt">select</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.boolean</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.boolean</span> <span class="nt">label</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.boolean</span> <span class="nt">input</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span><span class="nc">.required</span> <span class="nt">label</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span> <span class="nt">label</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span> <span class="nt">label</span> <span class="nt">abbr</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#888888</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.inputs</span> <span class="nt">ol</span> <span class="nt">li</span> <span class="nt">p</span><span class="nc">.inline-hints</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.formtastic</span> <span class="nt">fieldset</span><span class="nc">.buttons</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">span</span><span class="nc">.blank</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">span</span><span class="nc">.empty</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#888888</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">h3</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#547f00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Anonymous Pro&quot;</span><span class="o">,</span> <span class="s2">&quot;Menlo&quot;</span><span class="o">,</span> <span class="s2">&quot;Consolas&quot;</span><span class="o">,</span> <span class="s2">&quot;Bitstream Vera Sans Mono&quot;</span><span class="o">,</span> <span class="s2">&quot;Courier New&quot;</span><span class="o">,</span> <span class="k">monospace</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#fcf6db</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#e5e0c6</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.6em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">div</span><span class="nc">.gist</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">20px</span> <span class="m">0</span> <span class="m">25px</span> <span class="m">0</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="p">{</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span><span class="nd">:hover</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h2</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource.active</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h2</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span><span class="nd">:hover</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource.active</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#555555</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span><span class="nd">:last-child</span> <span class="p">{</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="k">transparent</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">14px</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#aaaaaa</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:active</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nc">.active</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:first-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.first</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span> <span class="p">{</span>
+  <span class="k">padding-right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span><span class="nd">:first-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options.first</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h2</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#999999</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h2</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#999999</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h2</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.path</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.path</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.path</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.7em</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">7px</span> <span class="m">0</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.access</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">border-top</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">-</span><span class="n">bottomleft</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">-</span><span class="n">bottomright</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span> <span class="m">0</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">input</span><span class="nc">.submit</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">6px</span> <span class="m">8px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">span</span><span class="nc">.response_throbber</span> <span class="p">{</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&#39;../../views/images/throbber.gif&#39;)</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">128px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">form</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="o">]</span><span class="nc">.error</span> <span class="p">{</span>
+  <span class="k">outline</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">outline</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#cc0000</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.response</span> <span class="nt">div</span><span class="nc">.block</span> <span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Anonymous Pro&quot;</span><span class="o">,</span> <span class="s2">&quot;Menlo&quot;</span><span class="o">,</span> <span class="s2">&quot;Consolas&quot;</span><span class="o">,</span> <span class="s2">&quot;Bitstream Vera Sans Mono&quot;</span><span class="o">,</span> <span class="s2">&quot;Courier New&quot;</span><span class="o">,</span> <span class="k">monospace</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">max-height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+  <span class="k">overflow-y</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#f9f2e9</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#f0e0ca</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#c5862b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#f0e0ca</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#c5862b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#c5862b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#faf5ee</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#f0e0ca</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#c5862b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#dcb67f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#fcffcd</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">border-color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#fcffcd</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">border-color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#ffd20f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#6fc992</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#f5e8e8</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#e8c6c7</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#a41e22</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#e8c6c7</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#a41e22</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#a41e22</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#f7eded</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#e8c6c7</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#a41e22</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#c8787a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#e7f6ec</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3e8d1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#10a54a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#c3e8d1</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#10a54a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#10a54a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#ebf7f0</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3e8d1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#10a54a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#6fc992</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#FCE9E3</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#F5D5C3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#D38042</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#f0cecb</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#D38042</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#D38042</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#faf0ef</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#f0cecb</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#D38042</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#dcb67f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#e7f0f7</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#ebf3f9</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#6fa5d2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#e7f0f7</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">h3</span> <span class="nt">span</span><span class="nc">.http_method</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#ebf3f9</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.options</span> <span class="nt">div</span><span class="nc">.content</span> <span class="nt">div</span><span class="nc">.sandbox_header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#6fa5d2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.content</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.content</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.content</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.content</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.content</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.content</span> <span class="p">{</span>
+  <span class="k">border-top</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:last-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.get</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.post</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.head</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.put</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.patch</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">li</span><span class="nc">.operation.delete</span> <span class="nt">div</span><span class="nc">.heading</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.last</span> <span class="p">{</span>
+  <span class="k">padding-right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">border-right</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:active</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span> <span class="nt">a</span><span class="nc">.active</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nd">:first-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span> <span class="nt">ul</span><span class="nc">.options</span> <span class="nt">li</span><span class="nc">.first</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations</span><span class="nd">:first-child</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">ul</span><span class="nf">#resources</span> <span class="nt">li</span><span class="nc">.resource</span> <span class="nt">ul</span><span class="nc">.endpoints</span> <span class="nt">li</span><span class="nc">.endpoint</span> <span class="nt">ul</span><span class="nc">.operations.first</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">p</span><span class="nf">#colophon</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">15px</span> <span class="m">40px</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.8em</span><span class="p">;</span>
+  <span class="k">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dddddd</span><span class="p">;</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#999999</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">p</span><span class="nf">#colophon</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#547f00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">h3</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">ol</span><span class="o">,</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nc">.markdown</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">5px</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">18px</span><span class="p">;</span>
+  <span class="k">list-style-type</span><span class="o">:</span> <span class="k">disc</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#ebf3f9</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#c3d9ec</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="nt">label</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0f6ab4</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">]</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="nt">p</span><span class="nc">.weak</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.8em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#7e7b6d</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="nt">p</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#646257</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.swagger-ui-wrap</span> <span class="nt">form</span><span class="nc">.form_box</span> <span class="nt">p</span> <span class="nt">strong</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.title</span> <span class="p">{</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.secondary_form</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.main_image</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">margin-right</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.oauth_body</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="k">margin-right</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.oauth_submit</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-dialog</span> <span class="p">{</span>
+  <span class="k">z-index</span><span class="o">:</span> <span class="m">10000</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">500px</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#ccc</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">13px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#777</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-dialog</span> <span class="nc">.api-popup-title</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-dialog</span> <span class="nc">.api-popup-title</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-dialog</span> <span class="nt">p</span><span class="nc">.error-msg</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-dialog</span> <span class="nt">button</span><span class="nc">.api-popup-authbtn</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-dialog</span> <span class="nt">button</span><span class="nc">.api-popup-cancel</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-scopes</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-scopes</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-scopes</span> <span class="nc">.api-scope-desc</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-scopes</span> <span class="nt">li</span> <span class="nt">input</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-popup-actions</span> <span class="p">{</span>
+  <span class="k">padding-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.access</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.auth</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#api_information_panel</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#ccc</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">13px</span><span class="p">;</span>
+  <span class="k">max-width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#api_information_panel</span> <span class="nt">p</span> <span class="nc">.api-msg-enabled</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#api_information_panel</span> <span class="nt">p</span> <span class="nc">.api-msg-disabled</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.api-ic</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
+  <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="sx">url(../../views/images/explorer_icons.png)</span> <span class="k">no-repeat</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.ic-info</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">-7px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.ic-warning</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">-60px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">-7px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.ic-error</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">-30px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">-7px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.ic-off</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">-90px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">58px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">-4px</span><span class="p">;</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nc">.ic-on</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">-160px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">58px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">-4px</span><span class="p">;</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#89bf04</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">a</span><span class="nf">#logo</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="k">transparent</span> <span class="sx">url(../../views/images/logo_small.png)</span> <span class="k">no-repeat</span> <span class="k">left</span> <span class="k">center</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">20px</span> <span class="m">0</span> <span class="m">20px</span> <span class="m">40px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="nc">.input</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="nc">.input</span> <span class="nt">input</span><span class="nf">#input_apiKey</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="nc">.input</span> <span class="nt">input</span><span class="nf">#input_baseUrl</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="nc">.input</span> <span class="nt">a</span><span class="nf">#explore</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">6px</span> <span class="m">8px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#547f00</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="nc">.input</span> <span class="nt">a</span><span class="nf">#explore</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#547f00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#header</span> <span class="nt">form</span><span class="nf">#api_selector</span> <span class="nc">.input</span> <span class="nt">input</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0.9em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#content_message</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#999999</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swagger-section</span> <span class="nf">#message-bar</span> <span class="p">{</span>
+  <span class="k">min-height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+  <span class="k">padding-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

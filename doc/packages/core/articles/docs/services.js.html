@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>services.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../", thisFile = "packages/core/articles/docs/services.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>services.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">load</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">swagger</span><span class="p">,</span> <span class="nx">parms</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">searchParms</span> <span class="o">=</span> <span class="nx">parms</span><span class="p">.</span><span class="nx">searchableOptions</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;spec&#39;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Article operations&#39;</span><span class="p">,</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/articles&#39;</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+      <span class="nx">summary</span><span class="o">:</span> <span class="s1">&#39;Get all Articles&#39;</span><span class="p">,</span>
+      <span class="nx">notes</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+      <span class="nx">nickname</span><span class="o">:</span> <span class="s1">&#39;getArticles&#39;</span><span class="p">,</span>
+      <span class="nx">produces</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;application/json&#39;</span><span class="p">],</span>
+      <span class="nx">params</span><span class="o">:</span> <span class="nx">searchParms</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">create</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;spec&#39;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Device operations&#39;</span><span class="p">,</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/articles&#39;</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+      <span class="nx">summary</span><span class="o">:</span> <span class="s1">&#39;Create article&#39;</span><span class="p">,</span>
+      <span class="nx">notes</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+      <span class="nx">nickname</span><span class="o">:</span> <span class="s1">&#39;createArticle&#39;</span><span class="p">,</span>
+      <span class="nx">produces</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;application/json&#39;</span><span class="p">],</span>
+      <span class="nx">parameters</span><span class="o">:</span> <span class="p">[{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Article to create.  User will be inferred by the authenticated user.&#39;</span><span class="p">,</span>
+        <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Article&#39;</span><span class="p">,</span>
+        <span class="nx">paramType</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span>
+        <span class="nx">allowMultiple</span><span class="o">:</span> <span class="kc">false</span>
+      <span class="p">}]</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">swagger</span><span class="p">.</span><span class="nx">addGet</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addPost</span><span class="p">(</span><span class="nx">create</span><span class="p">);</span>
+
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

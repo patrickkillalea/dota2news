@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>production.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "config/env/production.js", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>production.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">db</span><span class="o">:</span> <span class="s1">&#39;mongodb://&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_PORT_27017_TCP_ADDR</span> <span class="o">||</span> <span class="s1">&#39;localhost&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/mean-prod&#39;</span><span class="p">,</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Database options that will be passed directly to mongoose.connect
+Below are some examples.
+See <a href='http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect-options'>http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect-options</a>
+and <a href='http://mongoosejs.com/docs/connections.html'>http://mongoosejs.com/docs/connections.html</a> for more information</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">dbOptions</span><span class="o">:</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>server: {
+socketOptions: {
+keepAlive: 1
+},
+poolSize: 5
+},
+replset: {
+rs_name: 'myReplicaSet',
+poolSize: 5
+},
+db: {
+w: 1,
+numberOfRetries: 2
+}</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="p">},</span>
+  <span class="nx">hostname</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">,</span>
+  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;MEAN - A Modern Stack - Production&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">logging</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;combined&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">strategies</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">local</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nx">landingPage</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">facebook</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;APP_ID&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;APP_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/api/auth/facebook/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">twitter</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;CONSUMER_KEY&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;CONSUMER_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/api/auth/twitter/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">github</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;APP_ID&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;APP_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/api/auth/github/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">google</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;APP_ID&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;APP_SECRET&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/api/auth/google/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">linkedin</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost:3000/api/auth/linkedin/callback&#39;</span><span class="p">,</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">emailFrom</span><span class="o">:</span> <span class="s1">&#39;SENDER EMAIL ADDRESS&#39;</span><span class="p">,</span> <span class="c1">// sender address like ABC &lt;abc@example.com&gt;</span>
+  <span class="nx">mailer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">service</span><span class="o">:</span> <span class="s1">&#39;SERVICE_PROVIDER&#39;</span><span class="p">,</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;EMAIL_ID&#39;</span><span class="p">,</span>
+      <span class="nx">pass</span><span class="o">:</span> <span class="s1">&#39;PASSWORD&#39;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;SOME_TOKEN_SECRET&#39;</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

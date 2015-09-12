@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>auth.spec.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/public/tests/auth.spec.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>auth.spec.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Login Controller Spec</p>
+
+<div class="dox">
+  <div class="summary"><p>describe('MEAN controllers', function() {
+describe('LoginCtrl', function() {
+beforeEach(function() {
+jasmine.addMatchers({
+toEqualData: function() {
+return {
+compare: function(actual, expected) {
+return {
+pass: angular.equals(actual, expected)
+};
+}
+};
+}
+});
+});</p>
+  </div>
+  <div class="body"><p>beforeEach(function() {
+module('mean');
+module('mean.system');
+module('mean.users');
+});</p>
+
+<p>var LoginCtrl,
+scope,
+$rootScope,
+$httpBackend,
+$location;</p>
+
+<p>beforeEach(inject(function($controller, <em>$rootScope</em>, <em>$location</em>, <em>$httpBackend</em>) {</p>
+
+<p>scope = <em>$rootScope</em>.$new();
+$rootScope = <em>$rootScope</em>;</p>
+
+<p>LoginCtrl = $controller('LoginCtrl', {
+$scope: scope,
+$rootScope: <em>$rootScope</em>
+});</p>
+
+<p>$httpBackend = <em>$httpBackend</em>;</p>
+
+<p>$location = <em>$location</em>;</p>
+
+<p>}));</p>
+
+<p>afterEach(function() {
+$httpBackend.verifyNoOutstandingExpectation();
+$httpBackend.verifyNoOutstandingRequest();
+});</p>
+
+<p>it('should login with a correct user and password', function() {</p>
+
+<p>spyOn($rootScope, '$emit');
+// test expected GET request
+$httpBackend.when('POST', '/api/login').respond(200, {
+user: 'Fred'
+});
+scope.login();
+$httpBackend.flush();
+// test scope value
+expect($rootScope.user).toEqual('Fred');
+expect($rootScope.$emit).toHaveBeenCalledWith('loggedin');
+expect($location.url()).toEqual('/');
+});</p>
+
+<p>it('should fail to log in ', function() {
+$httpBackend.expectPOST('/api/login').respond(400, 'Authentication failed');
+scope.login();
+$httpBackend.flush();
+// test scope value
+expect(scope.loginerror).toEqual('Authentication failed.');</p>
+
+<p>});
+});</p>
+
+<p>describe('RegisterCtrl', function() {
+beforeEach(function() {
+jasmine.addMatchers({
+toEqualData: function() {
+return {
+compare: function(actual, expected) {
+return {
+pass: angular.equals(actual, expected)
+};
+}
+};
+}
+});
+});</p>
+
+<p>beforeEach(function() {
+module('mean');
+module('mean.system');
+module('mean.users');
+});</p>
+
+<p>var RegisterCtrl,
+scope,
+$rootScope,
+$httpBackend,
+$location;</p>
+
+<p>beforeEach(inject(function($controller, <em>$rootScope</em>, <em>$location</em>, <em>$httpBackend</em>) {</p>
+
+<p>scope = <em>$rootScope</em>.$new();
+$rootScope = <em>$rootScope</em>;</p>
+
+<p>RegisterCtrl = $controller('RegisterCtrl', {
+$scope: scope,
+$rootScope: <em>$rootScope</em>
+});</p>
+
+<p>$httpBackend = <em>$httpBackend</em>;</p>
+
+<p>$location = <em>$location</em>;</p>
+
+<p>}));</p>
+
+<p>afterEach(function() {
+$httpBackend.verifyNoOutstandingExpectation();
+$httpBackend.verifyNoOutstandingRequest();
+});</p>
+
+<p>it('should register with correct data', function() {</p>
+
+<p>spyOn($rootScope, '$emit');
+// test expected GET request
+scope.user.name = 'Fred';
+$httpBackend.when('POST', '/api/register').respond(200, 'Fred');
+scope.register();
+$httpBackend.flush();
+// test scope value
+expect($rootScope.user.name).toBe('Fred');
+expect(scope.registerError).toEqual(0);
+expect($rootScope.$emit).toHaveBeenCalledWith('loggedin');
+expect($location.url()).toBe('/');
+});</p>
+
+<p>it('should fail to register with duplicate Username', function() {
+$httpBackend.when('POST', '/api/register').respond(400, 'Username already taken');
+scope.register();
+$httpBackend.flush();
+// test scope value
+expect(scope.usernameError).toBe('Username already taken');
+expect(scope.registerError).toBe(null);
+});</p>
+
+<p>it('should fail to register with non-matching passwords', function() {
+$httpBackend.when('POST', '/api/register').respond(400, 'Password mismatch');
+scope.register();
+$httpBackend.flush();
+// test scope value
+expect(scope.usernameError).toBe(null);
+expect(scope.registerError).toBe('Password mismatch');
+});
+});</p>
+
+<p>describe('ForgotPasswordCtrl', function() {
+beforeEach(function() {
+jasmine.addMatchers({
+toEqualData: function() {
+return {
+compare: function(actual, expected) {
+return {
+pass: angular.equals(actual, expected)
+};
+}
+};
+}
+});
+});</p>
+
+<p>beforeEach(function() {
+module('mean');
+module('mean.system');
+module('mean.users');
+});</p>
+
+<p>var ForgotPasswordCtrl,
+scope,
+$rootScope,
+$httpBackend ;</p>
+
+<p>beforeEach(inject(function($controller, <em>$rootScope</em>, <em>$httpBackend</em>) {</p>
+
+<p>scope = <em>$rootScope</em>.$new();
+$rootScope = <em>$rootScope</em>;</p>
+
+<p>ForgotPasswordCtrl = $controller('ForgotPasswordCtrl', {
+$scope: scope,
+$rootScope: <em>$rootScope</em>
+});</p>
+
+<p>$httpBackend = <em>$httpBackend</em>;</p>
+
+<p>}));</p>
+
+<p>afterEach(function() {
+$httpBackend.verifyNoOutstandingExpectation();
+$httpBackend.verifyNoOutstandingRequest();
+});</p>
+
+<p>it('should display success response on success', function() {
+scope.user.email = '<a href='mailto:<a href='mailto:test@test.com'>test@test.com</a>'><a href='mailto:test@test.com'>test@test.com</a></a>';
+$httpBackend.when('POST', '/api/forgot-password').respond(200,'Mail successfully sent');
+scope.forgotpassword();
+$httpBackend.flush();</p>
+
+<p>expect(scope.response).toEqual('Mail successfully sent');</p>
+
+<p>});
+it('should display error response on failure', function() {
+scope.user.email = '<a href='mailto:<a href='mailto:test@test.com'>test@test.com</a>'><a href='mailto:test@test.com'>test@test.com</a></a>';
+$httpBackend.when('POST', '/api/forgot-password').respond(400,'User does not exist');
+scope.forgotpassword();
+$httpBackend.flush();</p>
+
+<p>expect(scope.response).toEqual('User does not exist');</p>
+
+<p>});</p>
+
+<p>});
+});  </p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+
+<span class="p">}());</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>theme.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../../doc-style.css" />
+  <script src="../../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../../", thisFile = "packages/custom/theme/public/assets/css/theme.css", defaultSidebar = true;
+  </script>
+  <script src="../../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>theme.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;futura_bkbook&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/ufonts.com_futura-book.svg#futura_bkbook&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;open_sans_hebrewregular&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.eot&quot;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.eot?#iefix&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;embedded-opentype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.woff&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;/theme/assets/fonts/opensanshebrew-regular.svg#open_sans_hebrewregular&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;svg&quot;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">bold</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome.container-fluid</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span><span class="m">18px</span><span class="p">;</span>
+  <span class="k">padding-top</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span><span class="m">#fff</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span><span class="m">#525252</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nc">.info</span><span class="o">,</span> <span class="nc">.welcome</span> <span class="nc">.featured</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.welcome</span> <span class="nc">.row</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span><span class="m">#f3f3f3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.welcome</span> <span class="nc">.first</span><span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+  <span class="k">margin-bottom</span><span class="o">:</span><span class="m">30px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">22px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span><span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="p">{</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="c">/*font-family: &quot;futura_bkbook&quot;;*/</span>
+  <span class="k">font-family</span><span class="o">:</span><span class="s2">&quot;open_sans_hebrewregular&quot;</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">16px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nc">.info</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nt">h1</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">30px</span><span class="p">;</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span><span class="m">#0e0e0e</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nt">h2</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">27px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">30px</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span><span class="m">300</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.featured-packages</span> <span class="nt">h2</span><span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nt">h3</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">17px</span><span class="p">;</span>
+<span class="c">/*  font-weight:300; */</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0e0e0e</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.docs</span> <span class="nt">h3</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="nc">.welcome</span> <span class="nc">.packages</span><span class="o">,</span> <span class="nc">.welcome</span> <span class="nc">.community</span><span class="o">,</span> <span class="nc">.welcome</span> <span class="nc">.featured-packages</span> <span class="p">{</span>
+  <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span><span class="m">80px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span><span class="m">100</span><span class="o">%</span><span class="p">;</span>
+  <span class="k">border-top</span><span class="o">:</span><span class="m">3px</span> <span class="k">solid</span> <span class="m">#f3f3f3</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nc">.packages</span> <span class="nt">h3</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span><span class="m">20px</span> <span class="m">0</span> <span class="m">20px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Docs */</span>
+<span class="nc">.welcome</span> <span class="nc">.info</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">padding-left</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">220px</span><span class="p">;</span>
+  <span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nc">.info</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">100px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nc">.info</span> <span class="nt">ul</span> <span class="nt">li</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;\003E&#39;</span><span class="p">;</span>
+     <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0.6em</span> <span class="m">0</span> <span class="m">-1em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span>  <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span><span class="m">53px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.welcome</span> <span class="nc">.info</span> <span class="nc">.docs</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span><span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.welcome</span> <span class="nc">.info</span> <span class="nc">.docs</span> <span class="nt">p</span><span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.docs-desc</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.docs-link</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">16px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">120px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.docs-link.first</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">16px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">53px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.morelink</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">16px</span> <span class="m">0</span> <span class="m">6px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.docs</span> <span class="nc">.morelink</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span><span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.morelink</span> <span class="nd">:before</span> <span class="p">{</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;\003E&#39;</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0.5em</span> <span class="m">0</span> <span class="m">-1em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Packages */</span>
+
+<span class="nc">.packages</span> <span class="nc">.package</span><span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span>
+  <span class="k">margin-right</span><span class="o">:</span><span class="m">40px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Packages */</span>
+<span class="nc">.packages</span> <span class="nc">.package</span> <span class="nt">h4</span><span class="o">,</span> <span class="nc">.community</span> <span class="nc">.package</span> <span class="nt">h4</span><span class="p">{</span>
+  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span><span class="m">53px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span><span class="m">#176583</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.packages</span> <span class="nc">.package</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="o">:</span><span class="m">53px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Community */</span>
+<span class="nc">.welcome-sprite</span><span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">53px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span><span class="m">53px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.welcome-sprite</span><span class="p">{</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(/theme/assets/img/welcome_sprite.png)</span><span class="p">;</span>
+  <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.docs</span> <span class="nc">.welcome-sprite</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-7px</span> <span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.packages</span> <span class="nc">.welcome-sprite</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">-60px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.community</span> <span class="nc">.welcome-sprite</span> <span class="p">{</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">-120px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.community</span> <span class="nc">.package</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+  <span class="k">margin-bottom</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.community</span> <span class="nc">.package</span> <span class="nt">p</span><span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">190px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.community</span> <span class="nc">.package</span> <span class="nt">h4</span><span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="nc">.socialsprite</span> <span class="p">{</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(/theme/assets/img/welcome_social.png)</span><span class="p">;</span>
+    <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.sprite-facebook</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">39px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">42px</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">-5px</span> <span class="m">-5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.sprite-github</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">44px</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">-54px</span> <span class="m">-5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.sprite-irc</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">38px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">42px</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">-104px</span> <span class="m">-5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.sprite-stackoverflow</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">44px</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">-152px</span> <span class="m">-5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Featured Pic */</span>
+<span class="nc">.featuredpic</span> <span class="nt">img</span><span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span><span class="m">510px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.welcome</span> <span class="nc">.community</span> <span class="nt">h3</span><span class="p">{</span>
+  <span class="k">margin-bottom</span><span class="o">:</span><span class="m">40px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Featured Sites */</span>
+
+
+<span class="nc">.featured-sites</span> <span class="nt">h4</span><span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.featured-sites</span> <span class="nt">h4</span> <span class="nt">span</span><span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.featured-sites</span> <span class="nt">p</span><span class="o">,</span> <span class="nc">.featured-packages</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

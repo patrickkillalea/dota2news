@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>circle.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/circles/server/models/circle.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>circle.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">),</span>
+  <span class="nx">Schema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">CircleSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">created</span><span class="o">:</span> <span class="nb">Date</span><span class="p">,</span>
+  <span class="nx">updated</span><span class="o">:</span> <span class="nb">Date</span><span class="p">,</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+  <span class="nx">description</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nx">circles</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+<span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>add index</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">CircleSchema</span><span class="p">.</span><span class="nx">statics</span><span class="p">.</span><span class="nx">buildPermissions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+
+  <span class="p">};</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">({}).</span><span class="nx">sort</span><span class="p">({</span>
+    <span class="nx">circle</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">}).</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">circles</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">circles</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">circle</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">toObject</span><span class="p">();</span>
+      <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">containers</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">circles</span><span class="p">;</span>
+      <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">parents</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">decendants</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">children</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">found</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>yes not efficient - getting there..</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="kd">var</span> <span class="nx">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">found</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">found</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+      <span class="nx">circles</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">circle</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">containers</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">containers</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>going through each of the containers parents</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">containers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span> <span class="p">{</span>
+
+          <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">container</span><span class="p">].</span><span class="nx">decendants</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">data</span><span class="p">[</span><span class="nx">container</span><span class="p">].</span><span class="nx">decendants</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">level</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">parents</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+              <span class="nx">data</span><span class="p">[</span><span class="nx">container</span><span class="p">].</span><span class="nx">children</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+
+          <span class="nx">data</span><span class="p">[</span><span class="nx">container</span><span class="p">].</span><span class="nx">circles</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">circ</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">containers</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">circ</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">circ</span> <span class="o">!=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">data</span><span class="p">[</span><span class="nx">circle</span><span class="p">.</span><span class="nx">name</span><span class="p">].</span><span class="nx">containers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">circ</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+              <span class="nx">found</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+          <span class="p">});</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+      <span class="nx">level</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">callback</span><span class="p">({</span>
+      <span class="nx">tree</span><span class="o">:</span> <span class="nx">buildTrees</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span>
+      <span class="nx">circles</span><span class="o">:</span> <span class="nx">data</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="p">};</span>
+
+
+<span class="kd">var</span> <span class="nx">buildTrees</span> <span class="o">=</span> <span class="nx">CircleSchema</span><span class="p">.</span><span class="nx">statics</span><span class="p">.</span><span class="nx">buildTrees</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">tree</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="k">in</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">buildTree</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">tree</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">tree</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">buildTree</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">branch</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">branch</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="nx">branch</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">id</span><span class="p">].</span><span class="nx">name</span>
+  <span class="p">});</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">hasChildren</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">id</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">branch</span><span class="p">[</span><span class="nx">length</span><span class="p">].</span><span class="nx">children</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">branch</span><span class="p">[</span><span class="nx">length</span><span class="p">].</span><span class="nx">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>only goes here if there are children</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">data</span><span class="p">[</span><span class="nx">id</span><span class="p">].</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">child</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">child</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">[</span><span class="nx">child</span><span class="p">])</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">noParents</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">child</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">branch</span><span class="p">[</span><span class="nx">length</span><span class="p">].</span><span class="nx">children</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">child</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span>
+          <span class="nx">size</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">});</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">buildTree</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">child</span><span class="p">,</span> <span class="nx">branch</span><span class="p">[</span><span class="nx">length</span><span class="p">].</span><span class="nx">children</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">noParents</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">data</span><span class="p">[</span><span class="nx">id</span><span class="p">].</span><span class="nx">parents</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">noChildren</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">data</span><span class="p">[</span><span class="nx">id</span><span class="p">].</span><span class="nx">children</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">hasChildren</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">!</span><span class="nx">noChildren</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="nx">CircleSchema</span><span class="p">);</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

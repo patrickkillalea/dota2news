@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>editable.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/admin/public/directives/editable.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>editable.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.admin&#39;</span><span class="p">).</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;ngEnter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">elm</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">elm</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">charCode</span> <span class="o">===</span> <span class="mi">13</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">)</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">$apply</span><span class="p">(</span><span class="nx">attrs</span><span class="p">.</span><span class="nx">ngEnter</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">};</span>
+<span class="p">});</span>
+
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.admin&#39;</span><span class="p">).</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;ngEditable&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>can be in-lined or async loaded by xhr
+or inlined as JS string (using template property)</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;span class=&quot;editable-wrapper&quot;&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;span data-ng-hide=&quot;edit&quot; data-ng-click=&quot;edit=true;value=model;&quot;&gt;{{model}}&lt;/span&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;input type=&quot;text&quot; data-ng-model=&quot;value&quot; data-ng-blur=&quot;edit = false; model = value&quot; data-ng-show=&quot;edit&quot; data-ng-enter=&quot;model=value;edit=false;&quot;/&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">,</span>
+        <span class="nx">scope</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;=ngEditableModel&#39;</span><span class="p">,</span>
+            <span class="nx">update</span><span class="o">:</span> <span class="s1">&#39;&amp;ngEditable&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">replace</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">link</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">focus</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
+            <span class="p">};</span>
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">$watch</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">isEditable</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">isEditable</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">scope</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>scope.focus();</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">});</span>
+
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.admin&#39;</span><span class="p">).</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;ngEditableParagraph&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>can be in-lined or async loaded by xhr
+or inlined as JS string (using template property)</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;span class=&quot;editable-wrapper&quot;&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;span data-ng-hide=&quot;edit&quot; data-ng-click=&quot;edit=true;value=model;&quot; class=&quot;respect-newline&quot;&gt;{{model}}&lt;/span&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;textarea data-ng-model=&quot;value&quot; data-ng-blur=&quot;model=value ; edit=false&quot; data-ng-show=&quot;edit&quot; data-ng-enter=&quot;model=value;edit=false;&quot; class=&quot;span8&quot;&gt;&lt;/textarea&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">,</span>
+        <span class="nx">scope</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;=ngEditableModel&#39;</span><span class="p">,</span>
+            <span class="nx">update</span><span class="o">:</span> <span class="s1">&#39;&amp;ngEditableParagraph&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">replace</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">link</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">focus</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
+            <span class="p">};</span>
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">$watch</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">isEditable</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">isEditable</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">scope</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">scope</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">});</span>
+
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.admin&#39;</span><span class="p">).</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;ngEditableSelect&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;span class=&quot;editable-wrapper&quot;&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;span data-ng-hide=&quot;edit&quot; data-ng-click=&quot;edit=true;value=model;&quot;&gt;&lt;span data-ng-repeat=&quot;m in model&quot;&gt;{{m}};&lt;/span&gt;&lt;/span&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;select data-ng-model=&quot;value&quot; data-ng-show=&quot;edit&quot; data-ng-multiple=&quot;true&quot; multiple data-ng-options=&quot;option for option in options&quot; data-ng-change=&quot;model=value;edit=false;&quot;&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;option value=&quot;&quot;&gt;Choose Option&lt;/option&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;/select&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">,</span>
+        <span class="nx">scope</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&amp;ngEditableSelectText&#39;</span><span class="p">,</span>
+            <span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;=ngEditableSelectModel&#39;</span><span class="p">,</span>
+            <span class="nx">options</span><span class="o">:</span> <span class="s1">&#39;=ngEditableSelectOptions&#39;</span><span class="p">,</span>
+            <span class="nx">update</span><span class="o">:</span> <span class="s1">&#39;&amp;ngEditableSelect&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">transclude</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">replace</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">link</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">$watch</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">isEditable</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">isEditable</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">scope</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

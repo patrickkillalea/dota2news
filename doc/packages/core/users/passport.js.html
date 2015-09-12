@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>passport.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "packages/core/users/passport.js", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>passport.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">),</span>
+  <span class="nx">LocalStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-local&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">,</span>
+  <span class="nx">TwitterStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-twitter&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">,</span>
+  <span class="nx">FacebookStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-facebook&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">,</span>
+  <span class="nx">GitHubStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-github&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">,</span>
+  <span class="nx">GoogleStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-google-oauth&#39;</span><span class="p">).</span><span class="nx">OAuth2Strategy</span><span class="p">,</span>
+  <span class="nx">LinkedinStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-linkedin&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">,</span>
+  <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">),</span>
+  <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;meanio&#39;</span><span class="p">).</span><span class="nx">loadConfig</span><span class="p">();</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">passport</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Serialize the user id to push into the session</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">serializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Deserialize the user object based on a pre-serialized token
+which is the user id</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">deserializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+      <span class="nx">_id</span><span class="o">:</span> <span class="nx">id</span>
+    <span class="p">},</span> <span class="s1">&#39;-salt -hashed_password&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Use local strategy</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">LocalStrategy</span><span class="p">({</span>
+      <span class="nx">usernameField</span><span class="o">:</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span>
+      <span class="nx">passwordField</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span>
+      <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Unknown user&#39;</span>
+          <span class="p">});</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Invalid password&#39;</span>
+          <span class="p">});</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">));</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Use twitter strategy</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">TwitterStrategy</span><span class="p">({</span>
+      <span class="nx">consumerKey</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">twitter</span><span class="p">.</span><span class="nx">clientID</span><span class="p">,</span>
+      <span class="nx">consumerSecret</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">twitter</span><span class="p">.</span><span class="nx">clientSecret</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">twitter</span><span class="p">.</span><span class="nx">callbackURL</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">tokenSecret</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="s1">&#39;twitter.id_str&#39;</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">id</span>
+      <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">displayName</span><span class="p">,</span>
+          <span class="nx">username</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+          <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;twitter&#39;</span><span class="p">,</span>
+          <span class="nx">twitter</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">,</span>
+          <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;authenticated&#39;</span><span class="p">]</span>
+        <span class="p">});</span>
+        <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span><span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Twitter login failed, email already used by other login strategy&#39;</span><span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">));</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Use facebook strategy</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">FacebookStrategy</span><span class="p">({</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">clientID</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">clientSecret</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">callbackURL</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span> <span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="s1">&#39;facebook.id&#39;</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">id</span>
+      <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">displayName</span><span class="p">,</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+          <span class="nx">username</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">username</span> <span class="o">||</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+          <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;facebook&#39;</span><span class="p">,</span>
+          <span class="nx">facebook</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">,</span>
+          <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;authenticated&#39;</span><span class="p">]</span>
+        <span class="p">});</span>
+        <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span><span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Facebook login failed, email already used by other login strategy&#39;</span><span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">));</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>Use github strategy</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">GitHubStrategy</span><span class="p">({</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">clientID</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">clientSecret</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">callbackURL</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span> <span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="s1">&#39;github.id&#39;</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">id</span>
+      <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">.</span><span class="nx">displayName</span> <span class="o">||</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">.</span><span class="nx">login</span><span class="p">,</span>
+          <span class="nx">username</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">.</span><span class="nx">login</span><span class="p">,</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+          <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;github&#39;</span><span class="p">,</span>
+          <span class="nx">github</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">,</span>
+          <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;authenticated&#39;</span><span class="p">]</span>
+        <span class="p">});</span>
+        <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span><span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Github login failed, email already used by other login strategy&#39;</span><span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">));</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>Use google strategy</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">GoogleStrategy</span><span class="p">({</span>
+      <span class="nx">clientID</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">clientID</span><span class="p">,</span>
+      <span class="nx">clientSecret</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">clientSecret</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">callbackURL</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span> <span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="s1">&#39;google.id&#39;</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">id</span>
+      <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">displayName</span><span class="p">,</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+          <span class="nx">username</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+          <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;google&#39;</span><span class="p">,</span>
+          <span class="nx">google</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">_json</span><span class="p">,</span>
+          <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;authenticated&#39;</span><span class="p">]</span>
+        <span class="p">});</span>
+        <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span><span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Google login failed, email already used by other login strategy&#39;</span><span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">));</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>use linkedin strategy</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">LinkedinStrategy</span><span class="p">({</span>
+      <span class="nx">consumerKey</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">linkedin</span><span class="p">.</span><span class="nx">clientID</span><span class="p">,</span>
+      <span class="nx">consumerSecret</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">linkedin</span><span class="p">.</span><span class="nx">clientSecret</span><span class="p">,</span>
+      <span class="nx">callbackURL</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">linkedin</span><span class="p">.</span><span class="nx">callbackURL</span><span class="p">,</span>
+      <span class="nx">profileFields</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;first-name&#39;</span><span class="p">,</span> <span class="s1">&#39;last-name&#39;</span><span class="p">,</span> <span class="s1">&#39;email-address&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span> <span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+        <span class="s1">&#39;linkedin.id&#39;</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">id</span>
+      <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">displayName</span><span class="p">,</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+          <span class="nx">username</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+          <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;linkedin&#39;</span><span class="p">,</span>
+          <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;authenticated&#39;</span><span class="p">]</span>
+        <span class="p">});</span>
+        <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="p">{</span><span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;LinkedIn login failed, email already used by other login strategy&#39;</span><span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">));</span>
+  <span class="k">return</span> <span class="nx">passport</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>meanUser.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/public/controllers/meanUser.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>meanUser.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.users&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AuthCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span> <span class="s1">&#39;$state&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">,</span> <span class="nx">$state</span><span class="p">,</span> <span class="nx">Global</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>This object will contain list of available social buttons to authorize</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">socialButtonsCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">global</span> <span class="o">=</span> <span class="nx">Global</span><span class="p">;</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">$state</span> <span class="o">=</span> <span class="nx">$state</span><span class="p">;</span>
+
+      <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/get-config&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">))</span> <span class="k">delete</span> <span class="nx">config</span><span class="p">.</span><span class="nx">local</span><span class="p">;</span> <span class="c1">// Only non-local passport strategies</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">socialButtons</span> <span class="o">=</span> <span class="nx">config</span><span class="p">;</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">socialButtonsCounter</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">])</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="s1">&#39;MeanUser&#39;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>This object will be filled by the form</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>
+      
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+        <span class="nx">placeholder</span><span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
+        <span class="nx">confirmPlaceholder</span><span class="o">:</span> <span class="s1">&#39;Repeat Password&#39;</span><span class="p">,</span>
+        <span class="nx">iconClass</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">tooltipText</span><span class="o">:</span> <span class="s1">&#39;Show password&#39;</span>
+      <span class="p">};</span>
+
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">togglePasswordVisible</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;text&#39;</span> <span class="o">?</span> <span class="s1">&#39;password&#39;</span> <span class="o">:</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">placeholder</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">placeholder</span> <span class="o">===</span> <span class="s1">&#39;Password&#39;</span> <span class="o">?</span> <span class="s1">&#39;Visible Password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">iconClass</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">iconClass</span> <span class="o">===</span> <span class="s1">&#39;icon_hide_password&#39;</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;icon_hide_password&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">tooltipText</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">tooltipText</span> <span class="o">===</span> <span class="s1">&#39;Show password&#39;</span> <span class="o">?</span> <span class="s1">&#39;Hide password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Show password&#39;</span><span class="p">;</span>
+      <span class="p">};</span>
+
+      <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;loginfailed&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">loginError</span> <span class="o">=</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">loginError</span><span class="p">;</span>
+      <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Register the login() function</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">login</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">])</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;RegisterCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="s1">&#39;MeanUser&#39;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>
+      
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+        <span class="nx">placeholder</span><span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
+        <span class="nx">placeholderConfirmPass</span><span class="o">:</span> <span class="s1">&#39;Repeat Password&#39;</span><span class="p">,</span>
+        <span class="nx">iconClassConfirmPass</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">tooltipText</span><span class="o">:</span> <span class="s1">&#39;Show password&#39;</span><span class="p">,</span>
+        <span class="nx">tooltipTextConfirmPass</span><span class="o">:</span> <span class="s1">&#39;Show password&#39;</span>
+      <span class="p">};</span>
+
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">togglePasswordVisible</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;text&#39;</span> <span class="o">?</span> <span class="s1">&#39;password&#39;</span> <span class="o">:</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">placeholder</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">placeholder</span> <span class="o">===</span> <span class="s1">&#39;Password&#39;</span> <span class="o">?</span> <span class="s1">&#39;Visible Password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">iconClass</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">iconClass</span> <span class="o">===</span> <span class="s1">&#39;icon_hide_password&#39;</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;icon_hide_password&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">tooltipText</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">tooltipText</span> <span class="o">===</span> <span class="s1">&#39;Show password&#39;</span> <span class="o">?</span> <span class="s1">&#39;Hide password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Show password&#39;</span><span class="p">;</span>
+      <span class="p">};</span>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">togglePasswordConfirmVisible</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;text&#39;</span> <span class="o">?</span> <span class="s1">&#39;password&#39;</span> <span class="o">:</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">placeholderConfirmPass</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">placeholderConfirmPass</span> <span class="o">===</span> <span class="s1">&#39;Repeat Password&#39;</span> <span class="o">?</span> <span class="s1">&#39;Visible Password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Repeat Password&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">iconClassConfirmPass</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">iconClassConfirmPass</span> <span class="o">===</span> <span class="s1">&#39;icon_hide_password&#39;</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;icon_hide_password&#39;</span><span class="p">;</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">tooltipTextConfirmPass</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">tooltipTextConfirmPass</span> <span class="o">===</span> <span class="s1">&#39;Show password&#39;</span> <span class="o">?</span> <span class="s1">&#39;Hide password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Show password&#39;</span><span class="p">;</span>
+      <span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Register the register() function</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">register</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+      <span class="p">};</span>
+
+      <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;registerfailed&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">registerError</span> <span class="o">=</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">registerError</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">])</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ForgotPasswordCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;MeanUser&#39;</span><span class="p">,</span> <span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>      
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">forgotpassword</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">forgotpassword</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+      <span class="p">};</span>
+      <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;forgotmailsent&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">args</span><span class="p">){</span>
+        <span class="nx">vm</span><span class="p">.</span><span class="nx">response</span> <span class="o">=</span> <span class="nx">args</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">])</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ResetPasswordCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;MeanUser&#39;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>      
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">registerForm</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">vm</span><span class="p">.</span><span class="nx">resetpassword</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">resetpassword</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">]);</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

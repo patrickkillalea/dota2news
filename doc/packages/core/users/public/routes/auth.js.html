@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>auth.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../", thisFile = "packages/core/users/public/routes/auth.js", defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>auth.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Setting up route</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mean.users&#39;</span><span class="p">).</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$meanStateProvider&#39;</span><span class="p">,</span> <span class="s1">&#39;$httpProvider&#39;</span><span class="p">,</span> <span class="s1">&#39;jwtInterceptorProvider&#39;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$meanStateProvider</span><span class="p">,</span> <span class="nx">$httpProvider</span><span class="p">,</span> <span class="nx">jwtInterceptorProvider</span><span class="p">)</span> <span class="p">{</span>    
+        
+    <span class="nx">jwtInterceptorProvider</span><span class="p">.</span><span class="nx">tokenGetter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;JWT&#39;</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="nx">$httpProvider</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;jwtInterceptor&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>states for my app</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">$meanStateProvider</span>
+      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/auth&#39;</span><span class="p">,</span>
+        <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;users/views/index.html&#39;</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;auth.login&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/login&#39;</span><span class="p">,</span>
+        <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;users/views/login.html&#39;</span><span class="p">,</span>
+        <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">loggedin</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">checkLoggedOut</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;auth.register&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/register&#39;</span><span class="p">,</span>
+        <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;users/views/register.html&#39;</span><span class="p">,</span>
+        <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">loggedin</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">checkLoggedOut</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;forgot-password&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/forgot-password&#39;</span><span class="p">,</span>
+        <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;users/views/forgot-password.html&#39;</span><span class="p">,</span>
+        <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">loggedin</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">checkLoggedOut</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;reset-password&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/reset/:tokenId&#39;</span><span class="p">,</span>
+        <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;users/views/reset-password.html&#39;</span><span class="p">,</span>
+        <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">loggedin</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">MeanUser</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">MeanUser</span><span class="p">.</span><span class="nx">checkLoggedOut</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

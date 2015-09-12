@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>default.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../../doc-style.css" />
+  <script src="../../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../../", thisFile = "packages/core/system/server/views/layouts/default.html", defaultSidebar = true;
+  </script>
+  <script src="../../../../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>default.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">xmlns:fb=</span><span class="s">&quot;https://www.facebook.com/2008/fbml&quot;</span> <span class="na">itemscope=</span><span class="s">&quot;itemscope&quot;</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/Product&quot;</span><span class="nt">&gt;</span>
+{% include &#39;../includes/head.html&#39; %}
+
+<span class="nt">&lt;body</span> <span class="na">data-ng-controller=</span><span class="s">&quot;ThemeController&quot;</span> <span class="na">ng-cloak</span> <span class="na">class=</span><span class="s">&quot;ng-cloak&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;state&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-inverse navbar-fixed-top&quot;</span> <span class="na">data-ng-include=</span><span class="s">&quot;&#39;/system/views/header.html&#39;&quot;</span> <span class="na">data-role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-ng-include=</span><span class="s">&quot;&#39;/admin/views/index.html&#39;&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            {% block content %}{% endblock %}
+        <span class="nt">&lt;/section&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+    {% include &#39;../includes/foot.html&#39; %}
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

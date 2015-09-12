@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>README.md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "packages/core/admin/README.md", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h1">
+        <a href="#%20mean%20admin"> MEAN Admin</a>
+      </div>
+      <div class="heading h2">
+        <a href="#basic%20usage">Basic Usage</a>
+      </div>
+      <div class="heading h2">
+        <a href="#deployment">Deployment</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="docs markdown">
+<div class="pilwrap" id="%20mean%20admin">
+  <h1>
+    <a href="#%20mean%20admin" name="%20mean%20admin" class="pilcrow">&#182;</a>
+    <a href="http://mean.io/"><img src="http://www.mean.io/img/logos/meanlogo.png" alt="MEAN Logo" title="" /></a> MEAN Admin
+  </h1>
+</div>
+
+
+<p><a href="https://david-dm.org/linnovate/mean-admin"><img src="https://david-dm.org/linnovate/mean-admin.png" alt="Dependencies Status" title="" /></a></p>
+
+<p>Admin module for MEAN applications to manage:</p>
+
+<ul>
+<li>Modules list</li>
+<li>Bootswatch themes support</li>
+<li>App Settings</li>
+<li>User Management</li>
+</ul>
+
+
+<div class="pilwrap" id="basic%20usage">
+  <h2>
+    <a href="#basic%20usage" name="basic%20usage" class="pilcrow">&#182;</a>
+    Basic Usage
+  </h2>
+</div>
+
+
+<p>Install Package in root of your mean app:</p>
+
+
+<div class="highlight"><pre><code><span class="nx">$</span> <span class="nx">mean</span> <span class="nx">install</span> <span class="nx">mean</span><span class="o">-</span><span class="nx">admin</span>
+</code></pre></div>
+
+
+
+<p>Add the admin role to your user:</p>
+
+
+<div class="highlight"><pre><code><span class="nx">$</span> <span class="nx">mean</span> <span class="nx">user</span> <span class="o">&lt;</span><span class="nx">email</span><span class="o">&gt;</span> <span class="o">-</span><span class="nx">a</span> <span class="nx">admin</span>
+</code></pre></div>
+
+
+
+<p>(Re)start the server:</p>
+
+
+<div class="highlight"><pre><code><span class="nx">$</span> <span class="nx">grunt</span>
+</code></pre></div>
+
+
+
+
+<div class="pilwrap" id="deployment">
+  <h2>
+    <a href="#deployment" name="deployment" class="pilcrow">&#182;</a>
+    Deployment
+  </h2>
+</div>
+
+
+<p>In order to deploy <code>mean-admin</code> to Heroku or otherwise, add the following line to <code>package.json</code> of the mean app:</p>
+
+
+<div class="highlight"><pre><code><span class="s2">&quot;mean-admin&quot;</span><span class="o">:</span> <span class="s2">&quot;linnovate/mean-admin&quot;</span><span class="p">,</span>
+</code></pre></div>
+
+
+
+<p><em>Note: the <code>mean-admin</code> pubilshed on npm does not work with meanio. The line above will pull the module directly from GitHub.</em></p>
+
+<p>Don't forget to add the <code>admin</code> role to the admin user. Make sure <code>server/config/env/production.js</code> is updated with the production db url, then use the <code>--env</code> flag as:</p>
+
+
+<div class="highlight"><pre><code><span class="nx">$</span> <span class="nx">mean</span> <span class="nx">user</span> <span class="o">&lt;</span><span class="nx">email</span><span class="o">&gt;</span> <span class="o">-</span><span class="nx">a</span> <span class="nx">admin</span> <span class="o">--</span><span class="nx">env</span> <span class="nx">production</span>
+</code></pre></div>
+
+</div>
+  </div>
+</body>
+</html>
