@@ -18,6 +18,13 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
         'link':'http://www.qed42.com',
         'image':'/theme/assets/img/cactus.png'
       }
+      'newsitem1':{
+        'name':'News Item 1',
+        'text':'newsitem1 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'Pat',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem1.jpg'
+      }
     };
     $scope.packages = {
       'gmap':{
