@@ -38,6 +38,48 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
         'author':'James',
         'link':'http://www.qed42.com',
         'image':'/theme/assets/img/newsitem3.jpg'
+      },
+      'newsitem4':{
+        'name':'News Item 4',
+        'text':'newsitem1 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'Pat',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem4.jpg'
+      },
+      'newsitem5':{
+        'name':'News Item 5',
+        'text':'newsitem2 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'Pat',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem5.jpg'
+      },
+      'newsitem6':{
+        'name':'News Item 6',
+        'text':'newsitem3 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'James',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem6.jpg'
+      },
+      'newsitem7':{
+        'name':'News Item 7',
+        'text':'newsitem1 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'Pat',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem7.jpg'
+      },
+      'newsitem8':{
+        'name':'News Item 8',
+        'text':'newsitem2 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'Pat',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem8.jpg'
+      },
+      'newsitem9':{
+        'name':'News Item 9',
+        'text':'newsitem3 Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
+        'author':'James',
+        'link':'http://www.qed42.com',
+        'image':'/theme/assets/img/newsitem9.jpg'
       }
     };
     $scope.packages = {
