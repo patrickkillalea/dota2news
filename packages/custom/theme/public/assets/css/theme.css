@@ -259,3 +259,9 @@
   font-size:14px;
   margin-left:0;
 }
+a {
+    color: black;
+}
+a:hover{
+    color: grey;
+}
