@@ -1,16 +1,19 @@
+<!-- Main Page -->
 <section class="welcome container-fluid" data-ng-controller="IndexController">
+	
+	<!-- Main News Section -->
 	<div class="col-md-12 featured-sites container-fluid">
+		
+		<!-- Primary News Carousel -->
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem1.image}}"/>
 			</div>
-			<h4>{{sites.newsitem1.name}} 
-				<span>by
-					<a href="{{sites.newsitem1.link}}">{{sites.newsitem1.author}}</a>
-				</span>
-			</h4>
 			<p>{{sites.newsitem1.text}}</p>
 		</div>
+		<!-- End Primary News Carousel -->
+
+		<!-- Latest News -->
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<section data-ng-controller="ArticlesController" data-ng-init="find()">
 				<ul class="articles navigation">
@@ -22,69 +25,96 @@
 					</li>
 				</ul>
 			</section>
-
 		</div>
+		<!-- End Latest News -->
+
 	</div>
+	<!-- End Main News Section -->
 
+	<!-- News Article Pictures Primary -->
 	<div class="col-md-12 container-fluid">
+
+		<!-- Article Picture 1 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem2.image}}"/>
 				<h4>{{sites.newsitem2.name}}</h4>
 			</div>
 		</div>
+		<!-- End Article Picture 1 -->
 
+		<!-- Article Picture 2 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem3.image}}"/>
 				<h4>{{sites.newsitem3.name}}</h4>
 			</div>
 		</div>
+		<!-- End Article Picture 2 -->
+
+		<!-- Article Picture 3 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem2.image}}"/>
 				<h4>{{sites.newsitem2.name}}</h4>
 			</div>
 		</div>
+		<!-- End Article Picture 3 -->
 
+		<!-- Article Picture 4 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem3.image}}"/>
 				<h4>{{sites.newsitem3.name}}</h4>
 			</div>
-		</div>		
+		</div>	
+		<!-- End Article Picture 4 -->
+
 	</div>
+	<!-- End Article Pictures Primary -->
 
-
+	<!-- News Article Pictures Primary -->
 	<div class="col-md-12 container-fluid">
+
+		<!-- Article Picture 1 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem2.image}}"/>
 				<h4>{{sites.newsitem2.name}}</h4>
 			</div>
 		</div>
+		<!-- End Article Picture 1 -->
 
+		<!-- Article Picture 2 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem3.image}}"/>
 				<h4>{{sites.newsitem3.name}}</h4>
 			</div>
 		</div>
+		<!-- End Article Picture 2 -->
+
+		<!-- Article Picture 3 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem2.image}}"/>
 				<h4>{{sites.newsitem2.name}}</h4>
 			</div>
 		</div>
+		<!-- End Article Picture 3 -->
 
+		<!-- Article Picture 4 -->
 		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="featuredpic featured-sites">
 				<img ng-src="{{sites.newsitem3.image}}"/>
 				<h4>{{sites.newsitem3.name}}</h4>
 			</div>
-		</div>		
+		</div>	
+		<!-- End Article Picture 4 -->	
+
 	</div>	
+	<!-- End Article Pictures Secondary -->
 
 </section>
-
+<!-- End Main Page -->
 
