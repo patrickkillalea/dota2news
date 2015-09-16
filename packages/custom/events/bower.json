@@ -1,7 +1,0 @@
-{
-  "name": "events",
-  "version": "0.0.1",
-  "dependencies": {
-    "ng-eventsnext": "~0.4.2"
-  }
-}
