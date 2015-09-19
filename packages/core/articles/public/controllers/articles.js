@@ -12,23 +12,23 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
     $scope.availableCircles = [];
 
     Circles.mine(function(acl) {
-        $scope.availableCircles = acl.allowed;
-        $scope.allDescendants = acl.descendants;
+      $scope.availableCircles = acl.allowed;
+      $scope.allDescendants = acl.descendants;
     });
 
     $scope.showDescendants = function(permission) {
-        var temp = $('.ui-select-container .btn-primary').text().split(' ');
+      var temp = $('.ui-select-container .btn-primary').text().split(' ');
         temp.shift(); //remove close icon
         var selected = temp.join(' ');
         $scope.descendants = $scope.allDescendants[selected];
-    };
+      };
 
-    $scope.selectPermission = function() {
+      $scope.selectPermission = function() {
         $scope.descendants = [];
-    };
+      };
 
-    $scope.create = function(isValid) {
-      if (isValid) {
+      $scope.create = function(isValid) {
+        if (isValid) {
         // $scope.article.permissions.push('test test');
         var article = new Articles($scope.article);
 
@@ -89,5 +89,5 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
         $scope.article = article;
       });
     };
-  }
+}
 ]);
